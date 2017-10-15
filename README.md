@@ -208,12 +208,118 @@ ldd  main
 
 Ya podemos copiar `main` y `libs/libaritmetica.so` juntos y `main` siempre encontrará a la biblioteca.
 
+--- 
 
 ## Java
 
-Codigo de biblioteca en:
+### Crear paquete jar con la biblioteca
 
-- [Archivo de código -implementación-](java/Aritmetica.java)
+0. Creamos directorio `aritmetica`
+
+```bash
+mkdir  aritmetica
+```
+
+1. Creamos clase `aritmetica/Aritmetica.java`
+
+Codigo en:
+
+- [Archivo aritmetica/Aritmetica.java](java/aritmetica/Aritmetica.java)
+
+2. Compilamos
+
+```
+javac  aritmetica/Aritmetica.java
+```
+  Obtenemos un archivo `aritmetica/Aritmetica.class` con el bytecode.
+ 
+3. Creamos paquete jar
+
+```
+jar  cvf  aritmetica.jar  aritmetica/*.class
+```
+
+4. Instalamos biblioteca en el sistema
+
+  Para instalar dicha biblioteca en el sistema debemos copiar `aritmetica.jar` al directorio de sistema donde se alojan las librerias de extensiones (p.ej: `/usr/lib/jvm/default-java/jre/lib/ext`). No es necesario mantener el nombre del archivo.
+
+```bash
+mv  aritmetica.jar  /usr/lib/jvm/default-java/jre/lib/ext/aritm.jar
+```
+ 
+### Crear programa que usa la biblioteca
+
+1. Creamos archivo `Main.java`
+
+Codigo en:
+
+- [Archivo Main.java](java/Main.java)
+
+2. Compilamos
+
+```
+javac  -cp  aritmetica:.  Main.java
+```
+  Obtenemos un archivo `Main.class` con el bytecode.
+
+```
+NOTA: Hacemos uso de la siguiente opción:
+
+-cp  aritmetica:.     Indicamos la ruta para archivos class (classpath).
+                      En este caso el directorio aritmetica y el directorio actual. 
+                      En Windows la separación se hace con ; en lugar de :
+```
+
+Si en lugar de usar el código disponible en nuestro directorio de trabajo, queremos enlazar con el del sistema (`/usr/lib/jvm/default-java/jre/lib/ext/aritm.jar`) podemos simplificar la compilación de la siguiente manera:
+
+```
+javac  Main.java
+```
+
+3. Ejecutamos
+
+```
+java  Main
+```
+
+### Crear programa autocontenido
+
+1. Creamos paquete jar
+
+```
+jar cvfe  main  Main  Main.class  aritmetica/*.class
+``` 
+
+```
+NOTA: Los argumentos son:
+
+main                              El nombre de archivo jar generado (opción f)
+Main                              La clase principal o punto de entrada (opción e)
+Main.class y aritmetica/*.class   Los archivos bytecode a incluir en archivo jar
+
+Las opciones f y e deben introducirse en el mismo orden que los argumentos correspondientes.
+```
+
+2. Damos permisos de ejecución
+
+```
+chmod +x  main
+```
+
+3. Ejecutamos
+
+```
+./main
+```
+
+```
+NOTA: En este caso __NO__ hemos hecho uso de la biblioteca  /usr/lib/jvm/default-java/jre/lib/ext/aritm.jar.
+
+Hemos usado el código disponible en nuestro directorio de trabajo.
+
+Podemos mover el programa main a otro directorio o incluso a otro computador que disponga de JRE y seguirá ejecutándose correctamente.
+
+```
 
 
 
