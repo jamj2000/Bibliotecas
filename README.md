@@ -2,9 +2,32 @@
 
 __Creación y Uso de Bibliotecas (libraries)__
 
+Minitutorial para crear y usar bibliotecas propias.
+
+Se crea una biblioteca llamada `aritmetica` con las cuatro operaciones básicas: `suma`, `resta`, `multiplicacion` y `division`.
+
+Se realiza para los lenguajes:
+- C
+- Java
+
 ---
 
 ## C
+
+Codigo de biblioteca en:
+
+- [Archivo de cabecera -especificación-](c/aritmetica.h)
+- [Archivo de código -implementación-](c/aritmetica.c)
+
+A continuación veremos como:
+- Crear una biblioteca estática
+- Crear una biblioteca dinámica
+- Usar la biblioteca dinámica como plugin
+- Hacer enlace estático
+- Hacer enlace dinámico
+
+
+
 
 ### Crear biblioteca estática
 
@@ -46,20 +69,35 @@ ldd  main
 
 ```bash
 gcc  -L.  -Wl,-rpath=.  -Wall  -o  main  main.c  -laritmetica
+```
+
+Comprobamos vínculos dinámicos
+```bash
 ldd  main
 ```
 
 ### Distribución de binario junto a biblioteca en una subcarpeta
 
 ```bash
-mkdir libs
+mkdir  libs
 mv  libaritmetica.so  libs
 gcc  -L./libs  -Wl,-rpath=libs  -Wall  -o  main  main.c  -laritmetica
+```
+
+Comprobamos vínculos dinámicos
+
+```bash
 ldd  main
 ```
 
-Podemos copiar main y libs/libaritmetica.so juntos y main siempre encontrará a la biblioteca 
-
+Podemos copiar `main` y `libs/libaritmetica.so` juntos y `main` siempre encontrará a la biblioteca.
 
 
 ## Java
+
+Codigo de biblioteca en:
+
+- [Archivo de código -implementación-](java/Aritmetica.java)
+
+
+
