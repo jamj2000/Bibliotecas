@@ -313,11 +313,12 @@ chmod +x  main
 ```
 
 ```
-NOTA: En este caso __NO__ hemos hecho uso de la biblioteca  /usr/lib/jvm/default-java/jre/lib/ext/aritm.jar.
+NOTA: En este caso NO hemos hecho uso de la biblioteca  /usr/lib/jvm/default-java/jre/lib/ext/aritm.jar.
 
 Hemos usado el código disponible en nuestro directorio de trabajo.
 
-Podemos mover el programa main a otro directorio o incluso a otro computador que disponga de JRE y seguirá ejecutándose correctamente.
+Podemos mover el programa main a otro directorio o incluso a otro computador que disponga de JRE 
+y seguirá ejecutándose correctamente.
 
 ```
 
