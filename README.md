@@ -1,6 +1,6 @@
 # DAW1-ED-Bibliotecas
 
-__Creación y Uso de Bibliotecas (libraries)__
+__Creación y Uso de Bibliotecas (librarias)__
 
 Minitutorial para crear y usar bibliotecas propias.
 
@@ -170,9 +170,10 @@ gcc  -L.  -Wl,-rpath=.  -Wall  -o  main  main.c  -laritmetica
 ```
 NOTA: Se hacen uso de las siguientes opciones:
 
-- -Wl,rpath=.    Directorio donde el enlazador debe buscar la biblioteca
-- -L.            Directorio donde se hallan los archivos de cabecera
-- -laritmetica   Biblioteca a enlazar (libaritmetica.so: observa que se elimina el prefijo lib y el sufijo .so)
+-Wall          Para mostrar warnings (puede quitarse si se desea)
+-Wl,rpath=.    Directorio donde el enlazador debe buscar la biblioteca
+-L.            Directorio donde se hallan los archivos de cabecera
+-laritmetica   Biblioteca a enlazar (libaritmetica.so: observa que se elimina el prefijo lib y el sufijo .so)
 ```
 
 2. Comprobamos vínculos dinámicos
