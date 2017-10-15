@@ -208,6 +208,7 @@ ldd  main
 
 Ya podemos copiar `main` y `libs/libaritmetica.so` juntos y `main` siempre encontrará a la biblioteca.
 
+--- 
 
 ## Java
 
@@ -259,5 +260,28 @@ javac  -cp  aritmetica:.  Main.java
 java  Main
 ```
 
+### Crear un paquete autocontenido
+
+1. Creamos paquete jar
+
+```
+jar cvfe  main  Main  Main.class  aritmetica/*.class
+``` 
+
+2. Damos permisos de ejecución
+
+```
+chmod +x  main
+```
+
+3. Ejecutamos
+
+```
+./main
+```
+
+---
+
+cp aritmetica.jar /usr/lib/jvm/default-java/jre/lib/
 
 
