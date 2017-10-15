@@ -211,9 +211,53 @@ Ya podemos copiar `main` y `libs/libaritmetica.so` juntos y `main` siempre encon
 
 ## Java
 
-Codigo de biblioteca en:
+### Crear paquete jar con la biblioteca
 
-- [Archivo de código -implementación-](java/Aritmetica.java)
+0. Creamos directorio `aritmetica`
+
+```bash
+mkdir  aritmetica
+```
+
+1. Creamos clase `aritmetica/Aritmetica.java`
+
+Codigo en:
+
+- [Archivo aritmetica/Aritmetica.java](java/aritmetica/Aritmetica.java)
+
+2. Compilamos
+
+```
+javac  aritmetica/Aritmetica.java
+```
+  Obtenemos un archivo `aritmetica/Aritmetica.class` con el bytecode.
+ 
+3. Creamos paquete jar
+
+```
+jar  cvf  aritmetica.jar  aritmetica/*.class
+```
+
+### Crear programa que usa la biblioteca
+
+1. Creamos archivo `Main.java`
+
+Codigo en:
+
+- [Archivo Main.java](java/Main.java)
+
+2. Compilamos
+
+```
+javac  -cp  aritmetica:.  Main.java
+```
+  Obtenemos un archivo `Main.class` con el bytecode.
+
+3. Ejecutamos
+
+```
+java  Main
+```
 
 
 
