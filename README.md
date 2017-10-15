@@ -4,7 +4,7 @@ __Creación y Uso de Bibliotecas (libraries)__
 
 Minitutorial para crear y usar bibliotecas propias.
 
-Se crea una biblioteca llamada `aritmetica` con las cuatro operaciones básicas: `suma`, `resta`, `multiplicacion` y `division`.
+Como ejemplo se crea una biblioteca llamada `aritmetica` con las cuatro operaciones básicas: `suma`, `resta`, `multiplicacion` y `division`.
 
 Se realiza para los lenguajes:
 - C
@@ -59,7 +59,7 @@ Hay una tercera forma de uso:
 ```
 gcc  -c  aritmetica.c
 ```
-Se habrá generado un archivo `aritmetica.o` con código objeto estático.
+  Se habrá generado un archivo `aritmetica.o` con código objeto estático.
 
 2. Empaquetamos en biblioteca estática `libaritmetica.a` 
 
@@ -69,9 +69,9 @@ ar  cr  libaritmetica.a  aritmetica.o
 
 3. Instalamos biblioteca en el sistema.
 
-Desde el punto de vista del programa desarrollado, este paso no es necesario. Pero resulta adecuado si deseamos hacer disponible la biblioteca para que otros programas puedan hacer uso de ella durante su compilación y enlazado.
+  Desde el punto de vista del programa desarrollado, este paso no es necesario. Pero resulta adecuado si deseamos hacer disponible la biblioteca para que otros programas puedan hacer uso de ella durante su compilación y enlazado.
 
-Para instalar dicha biblioteca en el sistema debemos copiar `libaritmetica.a` a algún directorio de sistema donde se alojan las librerias (p.ej: `/lib` o `/usr/lib`)
+  Para instalar dicha biblioteca en el sistema debemos copiar `libaritmetica.a` a algún directorio de sistema donde se alojan las librerias (p.ej: `/lib` o `/usr/lib`)
 
 ```bash
 cp  libaritmetica.a  /lib
@@ -83,15 +83,16 @@ cp  libaritmetica.a  /lib
 ```
 gcc  -c  -fPIC  aritmetica.c
 ```
-Se habrá generado un archivo `aritmetica.o` con código objeto dinámico.
+  Se habrá generado un archivo `aritmetica.o` con código objeto dinámico.
 
 2. Empaquetamos en biblioteca dinámica `libaritmetica.so` 
 ```
 gcc  -shared  -fPIC  -o  libaritmetica.so  aritmetica.o
 ```
+
 3. Instalamos biblioteca en el sistema
 
-Para instalar dicha biblioteca en el sistema debemos copiar `libaritmetica.so` a algún directorio de sistema donde se alojan las librerias (p.ej: `/lib` o `/usr/lib`)
+  Para instalar dicha biblioteca en el sistema debemos copiar `libaritmetica.so` a algún directorio de sistema donde se alojan las librerias (p.ej: `/lib` o `/usr/lib`)
 
 ```bash
 cp  libaritmetica.so  /lib
@@ -108,7 +109,7 @@ Codigo en:
 ```
 gcc  -o  plug  plug.c  -ldl
 ```
-Además de enlazar con la biblioteca estándar de C, debemos enlazar con la biblioteca adicional `dl` que nos permite la carga de código binario en tiempo de ejecución.
+  Además de enlazar con la biblioteca estándar de C, debemos enlazar con la biblioteca adicional `dl` que nos permite la carga de código binario en tiempo de ejecución.
 
 2. Ejecutamos programa `plug`
 
@@ -133,7 +134,7 @@ gcc  -o  main  main.c  libaritmetica.a
 ```
 ldd  main
 ```
-Observamos que __NO__ aparece la biblioteca `libaritmetica.a` como enlace dinámico.
+  Observamos que __NO__ aparece la biblioteca `libaritmetica.a` como enlace dinámico.
 
 
 ### Crear ejecutable con enlace dinámico
@@ -153,17 +154,25 @@ gcc  -o  main  main.c  libaritmetica.so
 ```
 ldd  main
 ```
-Observamos que __SÍ__ aparece la biblioteca `libaritmetica.so` como enlace dinámico.
+  Observamos que __SÍ__ aparece la biblioteca `libaritmetica.so` como enlace dinámico.
 
 
 ### Distribución de binario junto a biblioteca en la misma carpeta
 
-Una forma de distribuir un programa 
+Una forma de distribuir un programa con enlace dinámico de forma autocontenida es distribuir la biblioteca junto al programa y hacer el enlazado con una ruta relativa. En este caso la biblioteca está en el mismo directorio que el programa.
 
-1. 
+1. Compilamos y enlazamos, indicando el directorio donde está localizada la biblioteca, en este caso `.` (el propio directorio)
 
 ```
 gcc  -L.  -Wl,-rpath=.  -Wall  -o  main  main.c  -laritmetica
+```
+
+```
+NOTA: Se hacen uso de las siguientes opciones:
+
+- -Wl,rpath=.    Directorio donde el enlazador debe buscar la biblioteca
+- -L.            Directorio donde se hallan los archivos de cabecera
+- -laritmetica   Biblioteca a enlazar (libaritmetica.so: observa que se elimina el prefijo lib y el sufijo .so)
 ```
 
 2. Comprobamos vínculos dinámicos
@@ -172,13 +181,21 @@ gcc  -L.  -Wl,-rpath=.  -Wall  -o  main  main.c  -laritmetica
 ldd  main
 ```
 
+Ya podemos copiar `main` y `libaritmetica.so` juntos y `main` siempre encontrará a la biblioteca.
+
+
 ### Distribución de binario junto a biblioteca en una subcarpeta
 
-1. 
+Una forma de distribuir un programa con enlace dinámico de forma autocontenida es distribuir la biblioteca junto al programa y hacer el enlazado con una ruta relativa. En este caso organizaremos un poco la información, pondremos la biblioteca en un subdirectorio llamado `libs`.
 
+0. Creamos subdirectorio y movemos biblioteca a él.
 ```
 mkdir  libs
 mv  libaritmetica.so  libs
+```
+
+1. Compilamos y enlazamos, indicando el directorio donde está localizada la biblioteca, en este caso `./libs` (el subdirectorio del mismo nombre)
+```
 gcc  -L./libs  -Wl,-rpath=libs  -Wall  -o  main  main.c  -laritmetica
 ```
 
@@ -188,7 +205,7 @@ gcc  -L./libs  -Wl,-rpath=libs  -Wall  -o  main  main.c  -laritmetica
 ldd  main
 ```
 
-Podemos copiar `main` y `libs/libaritmetica.so` juntos y `main` siempre encontrará a la biblioteca.
+Ya podemos copiar `main` y `libs/libaritmetica.so` juntos y `main` siempre encontrará a la biblioteca.
 
 
 ## Java
