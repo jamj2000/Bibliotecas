@@ -1,4 +1,4 @@
-int suma (int sumando1, int sumando2);	
+int suma (int sumando1, int sumando2);
 
 int resta  (int minuendo, int sustraendo);
 
