@@ -34,6 +34,7 @@ En los lenguajes compilados se distingue dos __tipos de enlazado con una bibliot
   Ventajas: 
     - Programa autocontenido.
     - Las actualizaciones de la biblioteca no le afectan.  
+    
   Desventajas:
     - Mayor tamaño del programa.
     - El programa no se beneficia de las actualizaciones de la biblioteca.
@@ -43,6 +44,7 @@ En los lenguajes compilados se distingue dos __tipos de enlazado con una bibliot
   Ventajas: 
     - Menor tamaño del programa.
     - El programa se beneficia de las actualizaciones de la biblioteca.  
+    
   Desventajas:
     - Programa __NO__ autocontenido.
     - Las actualizaciones de la biblioteca le afectan para bien y para mal.
