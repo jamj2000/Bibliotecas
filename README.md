@@ -1,6 +1,6 @@
 # DAW1-ED-Bibliotecas
 
-__Creación y Uso de Bibliotecas (librarias)__
+__Creación y Uso de Bibliotecas (librerias)__
 
 Minitutorial para crear y usar bibliotecas propias.
 
