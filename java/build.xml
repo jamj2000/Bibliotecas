@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="aritmetica" default="compile" basedir=".">
-  <description>Biblioteca aritmetica y programa asociado.</description>
+<project name="programa" default="compile" basedir=".">
+  <description>Programa que usa biblioteca aritmetica.</description>
     <!-- Para crear este archivo se ha consultado:
          https://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html
     -->
+    <property name="src.dir"     value="."/>
+    <property name="build.dir"   value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="jar.dir"     value="${build.dir}/jar"/>
+    <property name="main-class"  value="Main"/>
+
 
     <!-- Creamos directorios para el resultado de la compilación --> 
     <target name="init">
-      <mkdir dir="build/classes"/>
-      <mkdir dir="build/jar"/>
-      <mkdir dir="dist" />
+      <mkdir dir="${classes.dir}"/>
+      <mkdir dir="${jar.dir}"/>
     </target>
 
     <!-- Indicamos directorio donde se hallan las clases --> 
@@ -20,25 +25,24 @@
     </path>
 
     <target name="compile" depends="init" >
-      <javac includeantruntime="false" destdir="build/classes" debug="true" srcdir=".">
+      <javac includeantruntime="false" destdir="${classes.dir}" debug="true" srcdir="${src.dir}">
         <classpath refid="compile.classpath"/>
       </javac>
     </target>
 
     <target name="jar" depends="compile">
-      <jar destfile="build/jar/programa.jar" basedir="build/classes">
+      <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
         <manifest>
-          <attribute name="Main-Class" value="Main"/>
+          <attribute name="Main-Class" value="${main-class}"/>
         </manifest>
       </jar>
     </target>
 
     <target name="run" depends="jar">
-      <java jar="build/jar/programa.jar" fork="true"/>
+      <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
     </target>
 
     <target name="clean">
-      <delete dir="dist" />
       <delete dir="build" />
     </target>
 
