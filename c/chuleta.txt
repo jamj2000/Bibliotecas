@@ -39,8 +39,8 @@ ldd main
 # Distribución de binario junto a biblioteca en una subcarpeta
 
 mkdir libs
-mv libaritmetica.so libs
-gcc -L./libs -Wl,-rpath=libs -Wall -o main main.c -laritmetica
+mv libaritmetica.so lib
+gcc -L./lib -Wl,-rpath=./lib -Wall -o main main.c -laritmetica
 ldd main
 
 
