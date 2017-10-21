@@ -19,19 +19,22 @@
       <mkdir dir="${jar.dir}"/>
     </target>
 
+
     <!-- Indicamos directorio donde se hallan las clases --> 
     <path id="compile.classpath">
-      <fileset dir="aritmetica">
-        <include name="*.jar"/>
-      </fileset>
+        <fileset dir="aritmetica" />
     </path>
 
+
+    <!-- Compilamos --> 
     <target name="compile" depends="init" >
-      <javac includeantruntime="false" destdir="${classes.dir}" debug="true" srcdir="${src.dir}">
+      <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false" debug="true" >
         <classpath refid="compile.classpath"/>
       </javac>
     </target>
 
+
+    <!-- Creamos archivo .jar --> 
     <target name="jar" depends="compile">
       <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
         <manifest>
@@ -40,15 +43,21 @@
       </jar>
     </target>
 
+
+    <!-- Ejecutamos --> 
     <target name="run" depends="jar">
       <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
     </target>
 
+
+    <!-- Borramos archivos generados --> 
     <target name="clean">
       <delete dir="build" />
     </target>
 
-    <target name="help">
+
+    <!-- Mostramos ayuda --> 
+    <target name="help">      
       <echo level="info">
         Objetivos válidos para ant:
 
@@ -59,8 +68,6 @@
           help
       </echo>
     </target>
-
-
 
 </project>
 
