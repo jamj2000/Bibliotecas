@@ -64,8 +64,11 @@ install: all
 
 
 help:
-	@echo "Objetivos válidos para este Makefile:"
-	@echo "... all (el objetivo por defecto si no se indica nada)"
-	@echo "... clean"
-	@echo "... install"
+	@echo "Objetivos válidos para make:"
+	@echo ""
+	@echo "  all (el objetivo por defecto si no se indica nada)"
+	@echo "  clean"
+	@echo "  install"
+	@echo "  help"
+	@echo ""
 .PHONY: help

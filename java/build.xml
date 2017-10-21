@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="programa" default="compile" basedir=".">
+<project name="programa" default="jar" basedir=".">
   <description>Programa que usa biblioteca aritmetica.</description>
-    <!-- Para crear este archivo se ha consultado:
+    <!-- Ejemplo de archivo de construcción (buildfile)
+         Para crear este archivo se ha consultado:
          https://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html
+         (cc0) jamj2000
     -->
     <property name="src.dir"     value="."/>
     <property name="build.dir"   value="build"/>
@@ -45,6 +47,20 @@
     <target name="clean">
       <delete dir="build" />
     </target>
+
+    <target name="help">
+      <echo level="info">
+        Objetivos válidos para ant:
+
+          jar (el objetivo por defecto si no se indica nada)
+          compile
+          run
+          clean
+          help
+      </echo>
+    </target>
+
+
 
 </project>
 
