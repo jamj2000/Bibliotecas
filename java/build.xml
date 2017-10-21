@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="aritmetica" default="compile" basedir=".">
+  <description>Biblioteca aritmetica y programa asociado.</description>
+    <!-- Para crear este archivo se ha consultado:
+         https://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html
+    -->
+
+    <!-- Creamos directorios para el resultado de la compilación --> 
+    <target name="init">
+      <mkdir dir="build/classes"/>
+      <mkdir dir="build/jar"/>
+      <mkdir dir="dist" />
+    </target>
+
+    <!-- Indicamos directorio donde se hallan las clases --> 
+    <path id="compile.classpath">
+      <fileset dir="aritmetica">
+        <include name="*.jar"/>
+      </fileset>
+    </path>
+
+    <target name="compile" depends="init" >
+      <javac includeantruntime="false" destdir="build/classes" debug="true" srcdir=".">
+        <classpath refid="compile.classpath"/>
+      </javac>
+    </target>
+
+    <target name="jar" depends="compile">
+      <jar destfile="build/jar/programa.jar" basedir="build/classes">
+        <manifest>
+          <attribute name="Main-Class" value="Main"/>
+        </manifest>
+      </jar>
+    </target>
+
+    <target name="run" depends="jar">
+      <java jar="build/jar/programa.jar" fork="true"/>
+    </target>
+
+    <target name="clean">
+      <delete dir="dist" />
+      <delete dir="build" />
+    </target>
+
+</project>
+
