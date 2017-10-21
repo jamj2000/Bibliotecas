@@ -30,25 +30,27 @@ Cuando desarrollamos un programa, éste, además de compilarse, necesita enlazar
 
 En los lenguajes compilados se distingue dos __tipos de enlazado con una biblioteca__:
 - __Estático__
-  El enlazado estático incluye el código de la biblioteca dentro del programa que hace uso de ella.
+  El enlazado estático incluye el código de la biblioteca dentro del programa que hace uso de ella.  
   Ventajas: 
     - Programa autocontenido.
-    - Las actualizaciones de la biblioteca no le afectan.
+    - Las actualizaciones de la biblioteca no le afectan.  
+    
   Desventajas:
     - Mayor tamaño del programa.
     - El programa no se beneficia de las actualizaciones de la biblioteca.
 
 - __Dinámico__
-  El enlazado dinámico __NO__ incluye el código de la biblioteca dentro del programa que hace uso de ella. En su lugar se realiza un vínculo a la biblioteca dinámica.
+  El enlazado dinámico __NO__ incluye el código de la biblioteca dentro del programa que hace uso de ella. En su lugar se realiza un vínculo a la biblioteca dinámica.  
   Ventajas: 
     - Menor tamaño del programa.
-    - El programa se beneficia de las actualizaciones de la biblioteca.
+    - El programa se beneficia de las actualizaciones de la biblioteca.  
+    
   Desventajas:
     - Programa __NO__ autocontenido.
     - Las actualizaciones de la biblioteca le afectan para bien y para mal.
 
 Hay una tercera forma de uso:
-- __Plugins__: Carga de biblioteca en tiempo de ejecución.
+- __Plugins__: Carga de biblioteca en tiempo de ejecución.  
   Es muy parecido al enlazado dinámico, con la salvedad que se carga la biblioteca en tiempo de ejecución. Esto permite, en un caso dado, comprobar si dicha biblioteca está disponible y hacer un uso de ella según el caso. Así prevenimos el error de carga del programa que se produce cuando no se encuentra la biblioteca enlazada dinámicamente.
 
 
@@ -313,11 +315,12 @@ chmod +x  main
 ```
 
 ```
-NOTA: En este caso __NO__ hemos hecho uso de la biblioteca  /usr/lib/jvm/default-java/jre/lib/ext/aritm.jar.
+NOTA: En este caso NO hemos hecho uso de la biblioteca  /usr/lib/jvm/default-java/jre/lib/ext/aritm.jar.
 
 Hemos usado el código disponible en nuestro directorio de trabajo.
 
-Podemos mover el programa main a otro directorio o incluso a otro computador que disponga de JRE y seguirá ejecutándose correctamente.
+Podemos mover el programa main a otro directorio o incluso a otro computador que disponga de JRE 
+y seguirá ejecutándose correctamente.
 
 ```
 
