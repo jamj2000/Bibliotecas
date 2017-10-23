@@ -46,7 +46,7 @@ A continuación veremos como realizar la construcción de un programa y su bibli
 
 En el caso del archivo _Makefile_, la primera regla es la regla por defecto, en este caso la hemos llamado _all_.
 En este caso sirve para compilar y enlazar todo, generando el ejecutable y la biblioteca asociada. 
-Si ejecutatamos `make` sin argumentos, se ejecutará la regla por defecto y obtendremos la siguiente salida:
+Si ejecutamos `make` sin argumentos, se ejecutará la regla por defecto y obtendremos la siguiente salida:
 
 ```
 gcc -O  -c  main.c
@@ -83,9 +83,9 @@ make  install
 - [código fuente](java)
 
 
-En el caso del archivo _build.xmk_, la regla por defecto es la que viene indicada en la etiqueta "project" en su atributo "default", en este caso la hemos llamado _jar_.
+En el caso del archivo _build.xml_, la regla por defecto es la que viene indicada en la etiqueta "project" en su atributo "default", en este caso la hemos llamado _jar_.
 En este caso sirve para compilar y enlazar todo, generando el bytecode del ejecutable y la biblioteca asociada y guardándolo todo en un archivo .jar. 
-Si ejecutatamos `ant` sin argumentos, se ejecutará la regla por defecto y obtendremos la siguiente salida:
+Si ejecutamos `ant` sin argumentos, se ejecutará la regla por defecto y obtendremos la siguiente salida:
 
 ```
 Buildfile: /home/jose/Proyectos/DAW1-ED-Bibliotecas/java/build.xml
