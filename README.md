@@ -1,6 +1,4 @@
-# DAW1-ED-Bibliotecas
-
-__Creación y Uso de Bibliotecas (librerias)__
+# __Creación y Uso de Bibliotecas (librerias)__
 
 Minitutorial para crear y usar bibliotecas propias.
 
@@ -52,6 +50,10 @@ En los lenguajes compilados se distingue dos __tipos de enlazado con una bibliot
 Hay una tercera forma de uso:
 - __Plugins__: Carga de biblioteca en tiempo de ejecución.  
   Es muy parecido al enlazado dinámico, con la salvedad que se carga la biblioteca en tiempo de ejecución. Esto permite, en un caso dado, comprobar si dicha biblioteca está disponible y hacer un uso de ella según el caso. Así prevenimos el error de carga del programa que se produce cuando no se encuentra la biblioteca enlazada dinámicamente.
+
+
+Lo normal es distribuir la funcionalidad básica de una aplicación en bibliotecas dinámicas y la funcionalidad opcional en forma de plugins. 
+
 
 
 ### Crear biblioteca estática
@@ -323,6 +325,10 @@ Podemos mover el programa main a otro directorio o incluso a otro computador que
 y seguirá ejecutándose correctamente.
 
 ```
+
+--- 
+
+__Para ver como automatizar el proceso de construcción (build) consulta el [siguiente enlace](https://github.com/jamj2000/DAW1-ED-Bibliotecas/blob/master/Build.md)__
 
 
 
