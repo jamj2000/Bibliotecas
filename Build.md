@@ -41,7 +41,7 @@ A continuación veremos como realizar la construcción de un programa y su bibli
 
 ## C
 
-- [buildfile utilizado: Makefile ](c/Makefile)
+- [Makefile ](c/Makefile)
 - [codigo fuente](c)
 
 En el caso del archivo _Makefile_, la primera regla es la regla por defecto, en este caso la hemos llamado _all_.
@@ -83,7 +83,7 @@ make  install
 
 ## Java
 
-- [buildfile utilizado: build.xml ](java/build.xml) 
+- [build.xml ](java/build.xml) 
 - [código fuente](java)
 
 
