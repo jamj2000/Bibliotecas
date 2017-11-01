@@ -62,9 +62,9 @@ gcc -O  -Wl,-rpath=/usr/local/lib  main.o  libaritmetica.so  -o  programa
 
 Entre otras, hemos declarado también las reglas para los objetivos siguientes:
 
-- help:  muestra un mensaje de ayuda
-- clean:  elimina los archivos resultantes de una construcción anterior
-- install:  instala el ejecutable y la biblioteca en el sistema
+- `help`:  muestra un mensaje de ayuda
+- `clean`:  elimina los archivos resultantes de una construcción anterior
+- `install`:  instala el ejecutable y la biblioteca en el sistema
 
 Para obtener dichos objetivos escribimos el comando `make` seguido del objetivo como argumento. 
 
@@ -113,9 +113,9 @@ Total time: 2 seconds
 
 Entre otras, hemos declarado también las reglas para los objetivos siguientes:
 
-- help:  muestra un mensaje de ayuda
-- clean:  elimina los archivos resultantes de una construcción anterior
-- run:  ejecuta el ejecutable, el cual hace uso de la biblioteca
+- `help`:  muestra un mensaje de ayuda
+- `clean`:  elimina los archivos resultantes de una construcción anterior
+- `run`:  ejecuta el ejecutable, el cual hace uso de la biblioteca
 
 Para obtener dichos objetivos escribimos el comando `make` seguido del objetivo como argumento. 
 
@@ -133,5 +133,5 @@ ant  run
 
 --- 
 
-__Para ver generar un Makefile haciendo uso de CMake consulta el [siguiente enlace](https://github.com/jamj2000/DAW1-ED-Bibliotecas/blob/master/CMake.md)__
+__Para ver como se puede generar un Makefile haciendo uso de CMake consulta el [siguiente enlace](https://github.com/jamj2000/DAW1-ED-Bibliotecas/blob/master/CMake.md)__
 
