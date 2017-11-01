@@ -5,7 +5,7 @@ SET(CMAKE_BUILD_TYPE       Release)
 SET(EXECUTABLE_OUTPUT_PATH bin)
 SET(LIBRARY_OUTPUT_PATH    lib)
 
-INCLUDE_DIRECTORIES (${PROJECT_SOURCE_DIR}/MyApp  ${PROJECT_SOURCE_DIR}/MyLib1  ${PROJECT_SOURCE_DIR}/MyLib2)
+INCLUDE_DIRECTORIES (${PROJECT_SOURCE_DIR}/MyLib1  ${PROJECT_SOURCE_DIR}/MyLib2)
 
 # Ejecutable
 #---------------------------------------------------------------
