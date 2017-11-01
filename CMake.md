@@ -170,23 +170,26 @@ INSTALL (TARGETS  MyApplication  MyLibrary1  MyLibrary2
   ARCHIVE DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
 )
 ``` 
-
-En caso de realizar `sudo  make  install` se copiarán los siguientes archivos a los siguientes directorios:
+Suponiendo que la variable `CMAKE_INSTALL_PREFIX` tiene el valor por defecto `/usr/local`, en caso de realizar `sudo  make  install` se copiarán los siguientes archivos a los siguientes directorios:
 
 - `MyApplication` a `/usr/local/bin` 
 - `MyLibrary1` a `/usr/local/lib`
 - `MyLibrary2` a `/usr/local/lib`
 
-Si la variable `CMAKE_INSTALL_PREFIX` tiene el valor por defecto `/usr/local`. Si tiene otro valor el directorio resultante dependerá de dicho valor.
+Si `CMAKE_INSTALL_PREFIX` tiene otro valor, el directorio resultante dependerá de dicho valor.
 
 Los tipos de destinos son:
 
-- `RUNTIME DESTINATION`: para archivos ejecutables
-- `LIBRARY DESTINATION`: para bibliotecas dinámicas
-- `ARCHIVE DESTINATION`: para bibliotecas estáticas
+- `RUNTIME DESTINATION`: para archivos ejecutables  (en este caso `MyApplication`)
+- `LIBRARY DESTINATION`: para bibliotecas dinámicas (en este caso `MyLibrary1`)
+- `ARCHIVE DESTINATION`: para bibliotecas estáticas (en este caso `MyLibrary2`)
+
+>En realidad los archivos de biblioteca que se instalarán tiene la forma:
+>- libMyLibrary1.so
+>- libMyLibrary2.a
 
 
-__Mensaje que se mostrará al final de la ejecución de `cmake ..`
+__Mensaje que se mostrará al final de la ejecución de `cmake ..`__
 ```
 MESSAGE (
 "\n  Resumen de construcción (build) para la aplicación."
