@@ -118,7 +118,7 @@ SET(LIBRARY_OUTPUT_PATH    lib)
 
 __Directorios donde se hallan archivos de cabecera .h__
 ```
-INCLUDE_DIRECTORIES (${PROJECT_SOURCE_DIR}/MyApp  ${PROJECT_SOURCE_DIR}/MyLib1  ${PROJECT_SOURCE_DIR}/MyLib2)
+INCLUDE_DIRECTORIES (${PROJECT_SOURCE_DIR}/MyLib1  ${PROJECT_SOURCE_DIR}/MyLib2)
 ```
 
 __Código fuente para el ejecutable__
