@@ -131,3 +131,7 @@ Por ejemplo, para ejecutar escribimos:
 ant  run
 ```
 
+--- 
+
+__Para ver generar un Makefile haciendo uso de CMake consulta el [siguiente enlace](https://github.com/jamj2000/DAW1-ED-Bibliotecas/blob/master/CMake.md)__
+
