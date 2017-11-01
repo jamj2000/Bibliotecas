@@ -1,13 +1,13 @@
 # Generación de archivo Makefile con CMake
 
-CMake es una herramienta que nos permite generar archivos _Makefile_ adaptados a la plataforma de destino.  
+CMake es una herramienta que nos permite generar archivos __`Makefile`__ adaptados a la plataforma de destino.  
 CMake necesita un archivo de configuración __CMakeLists.txt__, el cual es independiente de la plataforma.  
-El archivo _Makefile_ generado está destinado a una plataforma en concreto.
+El archivo __`Makefile`__ generado está destinado a una plataforma en concreto.
 
 Para realizar esta práctica veremos un proyecto desarrollado en C++ donde desarrollamos una aplicación muy sencilla 
 que hace uso de una biblioteca dinámica y otra estática.
 
-La biblioteca que construiremos de forma dinámica tiene el código para realizar operaciones aritméticas básicas (suma, resta, ...).
+La biblioteca que construiremos de forma dinámica tiene el código para realizar operaciones aritméticas básicas (suma, resta, ...).  
 La biblioteca que construiremos de forma estática tiene el código para realizar operaciones de potencias (cuadrado, cubo).
 
 Todo el código fuente es accesible en el siguiente enlace:
