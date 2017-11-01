@@ -1,4 +1,4 @@
-# __Creación y Uso de Bibliotecas (librerias)__
+# __Creación y Uso de Bibliotecas (librerías)__
 
 Minitutorial para crear y usar bibliotecas propias.
 
