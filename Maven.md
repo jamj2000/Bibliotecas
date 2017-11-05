@@ -123,7 +123,7 @@ cat  pom.xml
 3. Crea 2 clases dentro de la ruta `src/main/java/com/miempresa/app`:
 
 ```
-nano  src/main/java/com/miempresa/app
+nano  src/main/java/com/miempresa/app/App.java
 ```
 
 
@@ -148,7 +148,7 @@ public class App {
 ```
 
 ```
-nano  src/main/java/com/miempresa/app
+nano  src/main/java/com/miempresa/app/Aritmetica.java
 ```
 
 
@@ -272,7 +272,7 @@ mvn  exec:java
 Otra forma de ejecutar el archivo .jar es:
 
 ```bash
-cd target  &&  java -jar mi-app-1.0.0.jar  &&  cd ..
+java -jar target/mi-app-1.0.0.jar
 ```
 
 Si obtenemos algún error, podemos limpiar la construcción con `mvn  clean`. Revisaremos el código y volveremos a empezar.
