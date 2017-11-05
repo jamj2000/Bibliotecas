@@ -32,7 +32,7 @@ myapp
     |           `-- mycompany
     |               `-- app
     |                   `-- App.java
-    `-- testz
+    `-- test
         `-- java
             `-- com
                 `-- mycompany
@@ -52,7 +52,7 @@ El archivo `pom.xml` tiene un contenido similar a este:
 </project>
 ```
 
-La etiqueta _modelVersion_ hace referencia a la propia estructura del fichero Maven (actualmente es la 4)
+La etiqueta _modelVersion_ hace referencia a la propia estructura del fichero Maven (actualmente es la 4).  
 La etiqueta _packaging_ indica la forma de empaquetado. Por defecto es .jar.
 
 
