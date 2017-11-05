@@ -138,3 +138,9 @@ Por ejemplo, para ejecutar escribimos:
 ```
 ant  run
 ```
+
+---
+
+__Para ver como construir un proyecto Java con Maven, consulta el [siguiente enlace](https://github.com/jamj2000/DAW1-ED-Biblioteca/tree/master/Maven.md)__
+
+
