@@ -94,7 +94,7 @@ Todos los archivos generados durante la construcción se guardan en la carpeta `
 
 ## Ejemplo práctico
 
-Vamos a crear una aplicación llamada mi-app. Constará de 2 clases, una principal y otra con la funcionalidad para realizar las cuatro operaciones aritméticas básicas. 
+Vamos a crear una aplicación llamada `mi-app`. Constará de 2 clases, una principal y otra con la funcionalidad para realizar las cuatro operaciones aritméticas básicas. 
 
 Para ello realiza los siguientes pasos:
 
@@ -120,7 +120,7 @@ ls
 cat  pom.xml
 ```
 
-3. Crea las 2 clases dentro de la ruta `src/main/java/com/miempresa/app`:
+3. Crea 2 clases dentro de la ruta `src/main/java/com/miempresa/app`:
 
 ```
 nano  src/main/java/com/miempresa/app
@@ -145,6 +145,10 @@ public class App {
     System.out.println ("La división es " + Aritmetica.division(NUM1, NUM2) );
   }
 }
+```
+
+```
+nano  src/main/java/com/miempresa/app
 ```
 
 
@@ -243,7 +247,7 @@ mvn  compile
 En la carpeta `target/classes` obtendremos el bytecode correspondiente a cada clase.
 
 
-Otra forma de ejecutar el bytecode es:
+Una forma de ejecutar el bytecode es:
 
 ```bash
 cd target/classes  &&  java com.miempresa.app.App  &&  cd ../..
