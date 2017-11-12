@@ -91,7 +91,7 @@ mainClassName = 'Main'
 
 ## Tareas (tasks)
 
-Gradle ya tiene predefinidas una serie de tareas (tasks, en terminología de gradle). Son las siguientes:
+Gradle ya tiene predefinidas una serie de tareas (tasks, en terminología de gradle).
 
 Las tareas predefinidas de Gradle pueden verse con el comando:
 
@@ -157,7 +157,7 @@ Como se observa se distinguen 5 tipos de tareas:
   - `init`
   
 - Tarea de documentación:
- - javadoc
+  - `javadoc`
 
 - Tareas de ayuda, entre otras:
   - `tasks`
@@ -168,7 +168,7 @@ Como se observa se distinguen 5 tipos de tareas:
 
 El significado de cada tarea resulta bastante evidente debido a su semejanza respecto a otros sistemas de construcción.
 
-Por ejemplo, para compilar, generar `.jar`y realizar tests de unidada ejecutaremos:
+Por ejemplo, para compilar, construir y realizar tests de unidad ejecutaremos:
 
 ```
 ./gradlew  build
@@ -181,9 +181,9 @@ Todos los archivos generados durante la construcción se guardan en la carpeta `
 
 Vamos a crear una aplicación llamada `miapp`. Constará de 2 clases, una principal y otra con la funcionalidad para realizar las cuatro operaciones aritméticas básicas. 
 
-Para ello realiza los siguientes pasos:
+Para ello sigue los siguientes pasos:
 
-0. En tu carpeta de proyectos y crea una carpeta llamada miapp y entra en ella: 
+0. En tu carpeta de proyectos crea una carpeta llamada miapp y entra en ella: 
 
 ```
 cd  ~/Proyectos
@@ -223,9 +223,9 @@ tree
 ```
 
 
-3. Genera el código fuente siguiente:
+3. Genera el siguiente código fuente:
 
-__Borra las clases que vienen por defecto:__
+__Primero, borra las clases que vienen por defecto:__
 
 ```
 rm  src/main/java/Library.java  src/test/java/LibraryTest.java
@@ -359,6 +359,7 @@ cd build/classes/main  &&  java Main  &&  cd ../../..
 ```
 java  -jar  build/libs/miapp.jar
 ```
+> Nota:  Esto falla en la versión de gradle 2.10 usada por mí, puesto que dentro del archivo MANIFEST.MF del jar no aparece indicada la clase principal. 
 
 
 7. Para ejecutar las pruebas unitarias:
