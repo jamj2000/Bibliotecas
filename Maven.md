@@ -103,22 +103,20 @@ Para ello realiza los siguientes pasos:
 0. Entra en tu carpeta de proyectos: 
 
 ```
-cd 
-cd Proyectos
+cd  ~/Proyectos
 ```
 
 1. Crea la estructura de carpetas con maven:
 
 ```
-mvn archetype:generate -DgroupId=com.miempresa.app -DartifactId=mi-app -Dversion=1.0.0 \
-      -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+mvn  archetype:generate  -DgroupId=com.miempresa.app  -DartifactId=mi-app  -Dversion=1.0.0 \
+       -DarchetypeArtifactId=maven-archetype-quickstart  -DinteractiveMode=false
 ```
 
 2. Entra en la carpeta mi-app. Veras un archivo `pom.xml` ya creado con una configuración básica.
 
 ```
-cd  mi-app
-ls
+cd  mi-app  &&  ls
 cat  pom.xml
 ```
 
@@ -130,7 +128,6 @@ nano  src/main/java/com/miempresa/app/App.java
 
 
 ```java
-// Clase principal App
 package com.miempresa.app;
 
 public class App {
@@ -155,7 +152,6 @@ nano  src/main/java/com/miempresa/app/Aritmetica.java
 
 
 ```java
-// Clase Aritmetica
 package com.miempresa.app;
 
 public class Aritmetica {
