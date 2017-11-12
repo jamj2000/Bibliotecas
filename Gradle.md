@@ -374,7 +374,7 @@ Para ver un informe de las pruebas, podemos abrir con el navegador web el archiv
 firefox build/reports/tests/index.html
 ```
 
-![gradle-test](assets/gradle-test.png)
+![gradle-test](gradle-test.png)
 
 
 Si obtenemos algún error, podemos limpiar la construcción con `./gradlew  clean`. Revisaremos el código y volveremos a empezar.
