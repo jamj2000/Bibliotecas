@@ -365,10 +365,16 @@ java  -jar  build/libs/miapp.jar
 7. Para ejecutar las pruebas unitarias:
 
 ```
-./gradlew  test  -i
+./gradlew  test
 ```
 
-Con la opción `-i` se nos muestra algo más de información.
+Para ver un informe de las pruebas, podemos abrir con el navegador web el archivo `build/reports/tests/index.html`:
+
+```
+firefox build/reports/tests/index.html
+```
+
+![gradle-test](assets/gradle-test.png)
 
 
 Si obtenemos algún error, podemos limpiar la construcción con `./gradlew  clean`. Revisaremos el código y volveremos a empezar.
