@@ -141,6 +141,10 @@ ant  run
 
 ---
 
-__Para ver como construir un proyecto Java con Maven, consulta el [siguiente enlace](https://github.com/jamj2000/DAW1-ED-Bibliotecas/blob/master/Maven.md)__
+__Para ver como construir un proyecto Java con _Maven_, consulta el [siguiente enlace](https://github.com/jamj2000/DAW1-ED-Bibliotecas/blob/master/Maven.md)__
+
+---
+
+__Para ver como construir un proyecto Java con _Gradle_, consulta el [siguiente enlace](https://github.com/jamj2000/DAW1-ED-Bibliotecas/blob/master/Gradle.md)__
 
 ---
