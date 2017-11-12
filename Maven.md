@@ -23,21 +23,23 @@ mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=myapp -Dversion=
 El comando anterior genera una estructura de directorios como la mostrada a continuación:
 
 ```
-myapp
-|-- pom.xml
-`-- src
-    |-- main
-    |   `-- java
-    |       `-- com
-    |           `-- mycompany
-    |               `-- app
-    |                   `-- App.java
-    `-- test
-        `-- java
-            `-- com
-                `-- mycompany
-                    `-- app
-                        `-- AppTest.java
+tree
+
+.
+├── pom.xml
+└──src
+    ├── main
+    │   └── java
+    │       └── com
+    │           └── miempresa
+    │               └── app
+    │                   └── App.java
+    └── test
+        └── java
+            └── com
+                └── miempresa
+                    └── app
+                        └── AppTest.java
 ```
 
 El archivo `pom.xml` tiene un contenido similar a este:
