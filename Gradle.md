@@ -3,9 +3,9 @@
 
 Gradle es una herramienta para la gestión y construcción de proyectos Java.
 
-Gradle es el último en aparecer de los sistemas de construcción para Java: el primero fue _ant_ y el segundo _maven_. 
+De los sistemas de construcción para Java, Gradle es el último en aparecer: el primero fue _ant_ y el segundo _maven_. 
 
-Gradle construye sobre los conceptos de Apache Ant y Apache Maven e introduce un lenguaje especifico del dominio (DSL) basado en Groovy en vez de la forma XML utilizada por Apache Maven y Ant para declarar la configuración de proyecto
+Gradle construye sobre los conceptos de Apache Ant y Apache Maven e introduce un lenguaje especifico del dominio (DSL) basado en Groovy en vez de la forma XML utilizada por Apache Maven y Ant para declarar la configuración de proyecto.
 Esta característica hace que el buildfile de gradle sea más conciso y legible.
 
 Al igual que Maven, Gradle trabaja con uno o varios repositorios para usar en red. También al igual que Maven, soporta plugins.
@@ -13,9 +13,9 @@ Al igual que Maven, Gradle trabaja con uno o varios repositorios para usar en re
 Gradle tiene las siguientes ventajas sobre ant y maven:
 
 - es más rápido que maven y ant para grandes proyectos.
-- es organizado como maven sin ser rígido y flexible como ant sin tener que especificar cada objetivo.
+- es organizado como maven sin ser rígido y flexible como ant sin tener que especificar cada tarea.
 - tiene soporte para otros lenguajes como C y C++.
-- por defecto tiene en cuenta la dependencia para tests unitarios de JUnit.
+- por defecto agrega la dependencia para tests unitarios de JUnit.
 
 Gradle tiene las siguientes desventajas sobre ant y maven:
 
@@ -91,9 +91,9 @@ mainClassName = 'Main'
 
 ## Tareas (tasks)
 
-Gradle ya tiene predefinidas una serie de tareas (tasks, en terminología de gradle).
+Gradle ya tiene predefinidas una serie de tareas (__tasks__, en terminología de gradle).
 
-Las tareas predefinidas de Gradle pueden verse con el comando:
+Las tareas predefinidas pueden verse con el comando:
 
 ```
 ./gradlew  tasks
@@ -174,7 +174,7 @@ Por ejemplo, para compilar, construir y realizar tests de unidad ejecutaremos:
 ./gradlew  build
 ```
 
-Todos los archivos generados durante la construcción se guardan en la carpeta `build`. En la subcarpeta `libs` se guarda el archivo `jar`.
+Todos los archivos generados durante la construcción se guardan en la carpeta `build`. En la subcarpeta `libs` se guarda el archivo `.jar`.
 
 
 ## Ejemplo práctico
@@ -368,7 +368,7 @@ java  -jar  build/libs/miapp.jar
 ./gradlew  test  -i
 ```
 
-La opción `-i` nos muestra más algo más de información.
+Con la opción `-i` se nos muestra algo más de información.
 
 
 Si obtenemos algún error, podemos limpiar la construcción con `./gradlew  clean`. Revisaremos el código y volveremos a empezar.
