@@ -288,7 +288,7 @@ __Crea 2 clases de test dentro de la ruta `src/test/java`:__
 nano  src/test/java/MainTest.java
 ```
 
-```
+```java
 import org.junit.Test;
 import static org.junit.Assert.*;
 
