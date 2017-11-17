@@ -125,7 +125,7 @@ Entre otras, hemos declarado también las reglas para los objetivos siguientes:
 - `clean`:  elimina los archivos resultantes de una construcción anterior
 - `run`:  ejecuta el ejecutable, el cual hace uso de la biblioteca
 
-Para obtener dichos objetivos escribimos el comando `make` seguido del objetivo como argumento. 
+Para obtener dichos objetivos escribimos el comando `ant` seguido del objetivo como argumento. 
 
 Por ejemplo, para ver la ayuda escribimos:
 
