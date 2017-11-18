@@ -85,6 +85,12 @@ dependencies {
     testCompile 'junit:junit:4.12'         
 }
 
+jar {
+    manifest {
+       attributes ('Main-Class': 'Main')
+    }
+}
+
 mainClassName = 'Main'
 ```
 
@@ -334,6 +340,12 @@ dependencies {
     testCompile 'junit:junit:4.12'         
 }
 
+jar {
+    manifest {
+       attributes ('Main-Class': 'Main')
+    }
+}
+
 mainClassName = 'Main'
 ```
 
@@ -359,8 +371,6 @@ cd build/classes/main  &&  java Main  &&  cd ../../..
 ```
 java  -jar  build/libs/miapp.jar
 ```
-> Nota:  Esto falla en la versión de gradle 2.10 usada por mí, puesto que dentro del archivo MANIFEST.MF del jar no aparece indicada la clase principal. A día de hoy la versión más actual es la 4.3.1, que aún no he probado.
-
 
 7. Para ejecutar las pruebas unitarias:
 
