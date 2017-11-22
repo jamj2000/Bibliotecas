@@ -80,7 +80,7 @@ Por ejemplo, para instalar escribimos:
 make  install
 ```
 
-> Nota: instalar archivos en el sistema requiere de permisos de administrador. Por lo que la orden anterior suele ejecutarse como:
+> Nota: instalar archivos en el sistema requiere permisos de administrador. Por lo que la orden anterior suele ejecutarse como:
 >
 > ```
 > sudo  make  install
