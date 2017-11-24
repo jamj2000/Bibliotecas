@@ -120,7 +120,9 @@ cd  mi-app  &&  ls
 cat  pom.xml
 ```
 
-3. Crea 2 clases dentro de la ruta `src/main/java/com/miempresa/app`:
+3. Genera el siguiente código fuente:
+
+__Crea 2 clases dentro de la ruta `src/main/java/com/miempresa/app`__:
 
 ```
 nano  src/main/java/com/miempresa/app/App.java
@@ -176,6 +178,47 @@ public class Aritmetica {
 ```
 
 
+__Crea 2 clases dentro de la ruta `src/test/java/com/miempresa/app`__:
+
+
+```
+nano  src/main/java/com/miempresa/app/AppTest.java
+```
+
+```
+package com.miempresa.app;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class AppTest {
+
+  @Test
+  public void testMain() {
+      // Prueba vacía
+  }
+
+}
+```
+
+
+```
+nano  src/main/java/com/miempresa/app/AritmeticaTest.java
+```
+
+```
+package com.miempresa.app;
+                                                                                                                             
+import org.junit.Test;                                                                                                       
+import static org.junit.Assert.*;                                                                                           
+                                                                                                                             
+public class AritmeticaTest {                                                                                               
+
+    @Test                                                                                                                       public void testSuma() {
+        assertEquals("Suma (2,3) = 5", 5, Aritmetica.suma(2,3));
+    }
+}
+```
 
 4. Edita el archivo `pom.xml` para que aparezca tal como se muestra a continuación:
 
@@ -224,10 +267,10 @@ nano  pom.xml
 
   <dependencies>
     <dependency>
-      <!-- Prueba de unidades, ahora mismo sin utilidad -->
+      <!-- Prueba de unidades -->
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -258,10 +301,7 @@ cd target/classes  &&  java com.miempresa.app.App  &&  cd ../..
 mvn  package
 ```
 
-El archivo .jar se guarda en la carpeta `target`.
-
-
-7. Para ejecutar dicho archivo .jar:
+El archivo .jar se guarda en la carpeta `target`. Para ejecutar dicho archivo .jar:
 
 ```
 mvn  exec:java
@@ -270,8 +310,15 @@ mvn  exec:java
 Otra forma de ejecutar el archivo .jar es:
 
 ```bash
-java -jar target/mi-app-1.0.0.jar
+java  -jar  target/mi-app-1.0.0.jar
 ```
+
+7. Para ejecutar las pruebas unitarias:
+
+```bash
+mvn  test
+```
+
 
 Si obtenemos algún error, podemos limpiar la construcción con `mvn  clean`. Revisaremos el código y volveremos a empezar.
 
