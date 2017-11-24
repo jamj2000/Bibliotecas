@@ -185,7 +185,7 @@ __Crea 2 clases dentro de la ruta `src/test/java/com/miempresa/app`__:
 nano  src/test/java/com/miempresa/app/AppTest.java
 ```
 
-```
+```java
 package com.miempresa.app;
 
 import org.junit.Test;
@@ -206,12 +206,12 @@ public class AppTest {
 nano  src/test/java/com/miempresa/app/AritmeticaTest.java
 ```
 
-```
+```java
 package com.miempresa.app;
-                                                                                                                             
-import org.junit.Test;                                                                                                       
-import static org.junit.Assert.*;                                                                                           
-                                                                                                                             
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 public class AritmeticaTest {                                                                                               
 
     @Test
