@@ -212,7 +212,7 @@ package com.miempresa.app;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class AritmeticaTest {                                                                                               
+public class AritmeticaTest {
 
     @Test
     public void testSuma() {
