@@ -61,7 +61,7 @@ La etiqueta _packaging_ indica la forma de empaquetado. Por defecto es .jar.
 
 ## Objetivos o metas (goals)
 
-Maven ya tiene predefinidas una serie de metas (goals, en terminología de maven). Son las siguientes:
+Maven ya tiene predefinidas una serie de metas (__goals__, en terminología de maven). Son las siguientes:
 
 Las metas que forman parte del ciclo de vida principal del proyecto Maven son:
 
