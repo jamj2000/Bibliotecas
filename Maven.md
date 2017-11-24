@@ -182,7 +182,7 @@ __Crea 2 clases dentro de la ruta `src/test/java/com/miempresa/app`__:
 
 
 ```
-nano  src/main/java/com/miempresa/app/AppTest.java
+nano  src/test/java/com/miempresa/app/AppTest.java
 ```
 
 ```
@@ -203,7 +203,7 @@ public class AppTest {
 
 
 ```
-nano  src/main/java/com/miempresa/app/AritmeticaTest.java
+nano  src/test/java/com/miempresa/app/AritmeticaTest.java
 ```
 
 ```
@@ -214,7 +214,8 @@ import static org.junit.Assert.*;
                                                                                                                              
 public class AritmeticaTest {                                                                                               
 
-    @Test                                                                                                                       public void testSuma() {
+    @Test
+    public void testSuma() {
         assertEquals("Suma (2,3) = 5", 5, Aritmetica.suma(2,3));
     }
 }
