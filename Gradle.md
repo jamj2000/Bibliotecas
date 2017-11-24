@@ -101,9 +101,9 @@ Gradle ya tiene predefinidas una serie de tareas (__tasks__, en terminología de
 
 Las tareas predefinidas pueden verse con el comando:
 
-```
-./gradlew  tasks
+__``` ./gradlew  tasks ```__
 
+```
 :tasks
 
 ------------------------------------------------------------
