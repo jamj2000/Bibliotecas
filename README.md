@@ -316,13 +316,23 @@ chmod +x  main
 ./main
 ```
 
-```
-NOTA: En este caso NO hemos hecho uso de la biblioteca  /usr/lib/jvm/default-java/jre/lib/ext/aritm.jar.
 
-Hemos usado el código disponible en nuestro directorio de trabajo.
 
-Podemos mover el programa main a otro directorio o incluso a otro computador que disponga de JRE 
-y seguirá ejecutándose correctamente.
+
+> NOTA: Si los pasos 2 y 3 no funcionan, puedes probar la forma tradicional:
+>
+> ```bash
+> java   -jar    main
+> ```
+
+
+
+> NOTA: En este caso NO hemos hecho uso de la biblioteca  /usr/lib/jvm/default-java/jre/lib/ext/aritm.jar.
+>
+> Hemos usado el código disponible en nuestro directorio de trabajo.
+> 
+> Podemos mover el programa main a otro directorio o incluso a otro computador que disponga de JRE 
+> y seguirá ejecutándose correctamente.
 
 ```
 
