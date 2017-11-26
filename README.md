@@ -333,8 +333,7 @@ chmod +x  main
 > 
 > Podemos mover el programa main a otro directorio o incluso a otro computador que disponga de JRE 
 > y seguirá ejecutándose correctamente.
-
-```
+> 
 
 --- 
 
