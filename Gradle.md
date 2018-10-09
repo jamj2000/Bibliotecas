@@ -180,7 +180,7 @@ Por ejemplo, para compilar, construir y realizar tests de unidad ejecutaremos:
 ./gradlew  build
 ```
 
-Todos los archivos generados durante la construcción se guardan en la carpeta `build`. En la subcarpeta `libs` se guarda el archivo `.jar`.
+Todos los archivos generados durante la construcción se guardan en la carpeta `build`. En la subcarpeta `build/libs` se guarda el archivo `.jar`.
 
 
 ## Ejemplo práctico
