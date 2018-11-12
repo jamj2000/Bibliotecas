@@ -304,28 +304,11 @@ Main.class y aritmetica/*.class   Los archivos bytecode a incluir en archivo jar
 Las opciones f y e deben introducirse en el mismo orden que los argumentos correspondientes.
 ```
 
-2. Damos permisos de ejecución
+2. Ejecutamos
 
+```bash
+java   -jar    main
 ```
-chmod +x  main
-```
-
-3. Ejecutamos
-
-```
-./main
-```
-
-
-
-
-> NOTA: Si los pasos 2 y 3 no funcionan, puedes probar la forma tradicional:
->
-> ```bash
-> java   -jar    main
-> ```
-
-
 
 > NOTA: En este caso NO hemos hecho uso de la biblioteca  /usr/lib/jvm/default-java/jre/lib/ext/aritm.jar.
 >
@@ -333,7 +316,21 @@ chmod +x  main
 > 
 > Podemos mover el programa main a otro directorio o incluso a otro computador que disponga de JRE 
 > y seguirá ejecutándose correctamente.
-> 
+
+
+> NOTA: Otra forma de realizar la ejecución, que funciona algunas veces es:
+> 2. Damos permisos de ejecución
+>
+> ```
+> chmod +x  main
+> ```
+>
+> 3. Ejecutamos
+>
+> ```
+> ./main
+> ```
+
 
 --- 
 
