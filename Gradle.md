@@ -27,7 +27,7 @@ Gradle tiene las siguientes desventajas sobre ant y maven:
 
 ```
 mkdir  nombre-proyecto  &&  cd  nombre-proyecto
-gradle init  --type   java-application
+gradle init  --type   java-library
 ```
 
 Otros tipos de proyectos son: 
