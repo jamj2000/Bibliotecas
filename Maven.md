@@ -13,7 +13,7 @@ Maven está construido usando una arquitectura basada en plugins.
 
 ```
 mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app \
-    -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+    -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.0 -DinteractiveMode=false
 ```
 
 - `groupId` corresponde al paquete, en este caso com.mycompany.app
