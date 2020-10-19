@@ -220,6 +220,10 @@ Ya podemos copiar `main` y `libs/libaritmetica.so` juntos y `main` siempre encon
 >
 > Los siguientes pasos funcionan si estamos usando **JDK8**.
 > Para versiones posteriores, la forma de gestionar las bibliotecas ha cambiado.
+>
+> A partir de JDK9 la biblioteca no se distribuye en archivos .jar, sino en archivos .jmod. 
+> Podemos tener una primera aproximación si consultamos https://blog.mimacom.com/life-after-java-8/
+
 
 
 ### Crear paquete jar con la biblioteca
