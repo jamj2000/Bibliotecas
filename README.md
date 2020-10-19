@@ -216,6 +216,12 @@ Ya podemos copiar `main` y `libs/libaritmetica.so` juntos y `main` siempre encon
 
 ## Java
 
+> **NOTA IMPORTANTE:**
+>
+> Los siguientes pasos funcionan si estamos usando **JDK8**.
+> Para versiones posteriores, la forma de gestionar las bibliotecas ha cambiado.
+
+
 ### Crear paquete jar con la biblioteca
 
 0. Creamos directorio `aritmetica`
@@ -245,10 +251,10 @@ jar  cvf  aritmetica.jar  aritmetica/*.class
 
 4. Instalamos biblioteca en el sistema
 
-  Para instalar dicha biblioteca en el sistema debemos copiar `aritmetica.jar` al directorio de sistema donde se alojan las librerias de extensiones (p.ej: `/usr/lib/jvm/default-java/jre/lib/ext`). No es necesario mantener el nombre del archivo.
+  Para instalar dicha biblioteca en el sistema debemos copiar `aritmetica.jar` al directorio de sistema donde se alojan las librerias de extensiones (p.ej: **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext`**). No es necesario mantener el nombre del archivo.
 
 ```bash
-mv  aritmetica.jar  /usr/lib/jvm/default-java/jre/lib/ext/aritm.jar
+mv  aritmetica.jar  /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/aritm.jar
 ```
  
 ### Crear programa que usa la biblioteca
@@ -262,29 +268,41 @@ Codigo en:
 2. Compilamos
 
 ```
-javac  -cp  aritmetica:.  Main.java
-```
-  Obtenemos un archivo `Main.class` con el bytecode.
-
-```
-NOTA: Hacemos uso de la siguiente opción:
-
--cp  aritmetica:.     Indicamos la ruta para archivos class (classpath).
-                      En este caso el directorio aritmetica y el directorio actual. 
-                      En Windows la separación se hace con ; en lugar de :
-```
-
-Si en lugar de usar el código disponible en nuestro directorio de trabajo, queremos enlazar con el del sistema (`/usr/lib/jvm/default-java/jre/lib/ext/aritm.jar`) podemos simplificar la compilación de la siguiente manera:
-
-```
 javac  Main.java
 ```
+
+Al compilar, se enlaza con las bibliotecas necesarias, buscando éstas en el directorio de bibliotecas del sistema. En nuestro caso en **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib`** para la biblioteca estándar de Java. Y en **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext`** para las bibliotecas añadidas.
+
 
 3. Ejecutamos
 
 ```
 java  Main
 ```
+
+Al ejecutar, se buscan las bibliotecas necesarias en el directorio de bibliotecas del sistema. En nuestro caso en **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib`** para la biblioteca estándar de Java. Y en **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext`** para las bibliotecas añadidas.
+
+
+> **NOTA**:
+> 
+> Si la biblioteca no estuviese en el directorio de bibliotecas del sistema, 
+> entonces debemos indicar mediante el *directorio de clases* las carpetas donde buscar la biblioteca.
+> 
+> ```
+> javac  -cp  aritmetica:.  Main.java
+> ```
+> o
+> ```
+> javac  -classpath  aritmetica:.  Main.java
+> ```
+>
+> Obtenemos un archivo `Main.class` con el bytecode.
+>
+> La opción  `-cp  aritmetica:.` indica la ruta para archivos .class (**classpath**) de biblioteca.
+> En este caso se busca en el directorio aritmetica y en el directorio actual. 
+> En Windows la separación entre directorios se hace con ; en lugar de :
+> 
+
 
 ### Crear programa autocontenido
 
