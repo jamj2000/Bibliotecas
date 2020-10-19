@@ -328,7 +328,7 @@ Las opciones f y e deben introducirse en el mismo orden que los argumentos corre
 java   -jar    main
 ```
 
-> NOTA: En este caso NO hemos hecho uso de la biblioteca  /usr/lib/jvm/default-java/jre/lib/ext/aritm.jar.
+> NOTA: En este caso NO hemos hecho uso de la biblioteca  /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/aritm.jar.
 >
 > Hemos usado el código disponible en nuestro directorio de trabajo.
 > 
@@ -337,6 +337,7 @@ java   -jar    main
 
 
 > NOTA: Otra forma de realizar la ejecución, que funciona algunas veces es:
+>
 > 2. Damos permisos de ejecución
 >
 > ```
