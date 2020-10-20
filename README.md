@@ -277,6 +277,8 @@ Codigo en:
 javac  Main.java
 ```
 
+Obtenemos un archivo `Main.class` con el bytecode.
+
 Al compilar, se enlaza con las bibliotecas necesarias, buscando éstas en el directorio de bibliotecas del sistema. En nuestro caso en **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib`** para la biblioteca estándar de Java. Y en **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext`** para las bibliotecas añadidas.
 
 
@@ -289,41 +291,81 @@ java  Main
 Al ejecutar, se buscan las bibliotecas necesarias en el directorio de bibliotecas del sistema. En nuestro caso en **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib`** para la biblioteca estándar de Java. Y en **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext`** para las bibliotecas añadidas.
 
 
-> **NOTA**:
-> 
-> Si la biblioteca no estuviese en el directorio de bibliotecas del sistema, 
-> entonces debemos indicar mediante el *directorio de clases* las carpetas donde buscar la biblioteca.
-> 
-> ```
-> javac  -cp  aritmetica:.  Main.java
-> ```
-> o
-> ```
-> javac  -classpath  aritmetica:.  Main.java
-> ```
+
+### Crear programa autocontenido
+
+Cuando trabajamos directamente con el `bytecode`, es decir archivos `.class`, debemos indicar a la JVM las rutas donde encontrar este tipo de archivos.
+
+Por ejemplo, imaginemos que tenemos la siguiente estructura de archivos: 
+
+```
+Proyectos
+└── Programa
+    ├── Main.class
+    └── aritmetica
+        └── Aritmetica.class
+```
+
+Y nos encontramos dentro de la carpeta `Programa`.
+
+Podemos ejecutar sin problemas
+
+```
+java  Main
+```
+
+Pero si, por ejemplo, movemos la carpeta `aritmetica` al directorio `Proyectos` quedándonos la siguiente estructura:
+
+```
+Proyectos
+├── aritmetica
+│   └── Aritmetica.class
+└── Programa
+    └── Main.class
+
+```
+Y seguimos en la carpeta `Programa`, la siguiente ejecución fallará
+
+```
+java  Main
+```
+
+Para resolver el problema anterior, debemos indicar mediante el *directorio de clases* las carpetas donde buscarlos.
+
+```
+java  -cp  ..:.  Main
+```
+o
+
+```
+java  -classpath  ..:.  Main
+```
+
+> NOTA:
 >
-> Obtenemos un archivo `Main.class` con el bytecode.
->
-> La opción  `-cp  aritmetica:.` indica la ruta para archivos .class (**classpath**) de biblioteca.
-> En este caso se busca en el directorio aritmetica y en el directorio actual. 
+> La opción  `-cp  ..:.` indica la ruta para archivos `.class` (**classpath**).
+> Si los archivos `.class` están dentro de un paquete, debemos indicar la ruta donde se halla dicho paquete.
+> En este caso se busca en el directorio padre (`..`) y en el directorio actual (`.`). 
 > En Windows la separación entre directorios se hace con ; en lugar de :
 > 
 
+Para evitar los inconvenientes anteriores, se suele recurrir a empaquetar todas las clases en un archivo `.jar` y distribuirlo en este formato.
 
-### Crear programa autocontenido
+Los pasos para crear dicho archivo `.jar` y ejecutarlo son los siguientes:
+
 
 1. Creamos paquete jar
 
 ```
-jar cvfe  main  Main  Main.class  aritmetica/*.class
+jar cvfe  main.jar  Main  Main.class  aritmetica/*.class
 ``` 
 
 ```
 NOTA: Los argumentos son:
 
-main                              El nombre de archivo jar generado (opción f)
+main.jar                          El nombre de archivo jar generado (opción f)
 Main                              La clase principal o punto de entrada (opción e)
-Main.class y aritmetica/*.class   Los archivos bytecode a incluir en archivo jar
+Main.class y aritmetica/*.class   Los archivos bytecode a incluir en el archivo jar
 
 Las opciones f y e deben introducirse en el mismo orden que los argumentos correspondientes.
 ```
@@ -331,14 +373,12 @@ Las opciones f y e deben introducirse en el mismo orden que los argumentos corre
 2. Ejecutamos
 
 ```bash
-java   -jar    main
+java   -jar    main.jar
 ```
 
 > NOTA: En este caso NO hemos hecho uso de la biblioteca  /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/aritm.jar.
->
-> Hemos usado el código disponible en nuestro directorio de trabajo.
 > 
-> Podemos mover el programa main a otro directorio o incluso a otro computador que disponga de JRE 
+> Podemos mover el paquete `main.jar` a otro directorio o incluso a otro computador que disponga de JRE 
 > y seguirá ejecutándose correctamente.
 
 
@@ -347,13 +387,13 @@ java   -jar    main
 > 2. Damos permisos de ejecución
 >
 > ```
-> chmod +x  main
+> chmod +x  main.jar
 > ```
 >
 > 3. Ejecutamos
 >
 > ```
-> ./main
+> ./main.jar
 > ```
 
 
