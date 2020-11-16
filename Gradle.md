@@ -378,7 +378,7 @@ java  -jar  build/libs/miapp.jar
 ./gradlew  test
 ```
 
-Para ver un informe de las pruebas, podemos abrir con el navegador web el archivo `build/reports/tests/index.html`:
+Para ver un informe de las pruebas, podemos abrir con el navegador web el archivo `build/reports/tests/test/index.html`:
 
 ```
 firefox build/reports/tests/index.html
