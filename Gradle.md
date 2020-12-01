@@ -27,7 +27,7 @@ Gradle tiene las siguientes desventajas sobre ant y maven:
 
 ```
 mkdir  nombre-proyecto  &&  cd  nombre-proyecto
-gradle init  --type   java-library
+gradle init  --type   java-application
 ```
 
 Otros tipos de proyectos son: 
@@ -35,8 +35,7 @@ Otros tipos de proyectos son:
 - groovy-library
 - pom
 - scala-library
-- java-application (en las últimas versiones).
-
+- java-library
 
 El comando anterior genera una estructura de directorios como la mostrada a continuación:
 
@@ -45,7 +44,6 @@ tree
 
 .
 ├── build.gradle
-├── build.gradle.bak
 ├── gradle
 │   └── wrapper
 │       ├── gradle-wrapper.jar
@@ -56,10 +54,10 @@ tree
 └── src
     ├── main
     │   └── java
-    │       └── Library.java
+    │       └── App.java
     └── test
         └── java
-            └── LibraryTest.java
+            └── AppTest.java
 
 ```
 
@@ -81,7 +79,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.google.guava:guava:21.0'  
+    compile 'com.google.guava:guava:23.0'  
     testCompile 'junit:junit:4.12'         
 }
 
@@ -199,11 +197,8 @@ mkdir  miapp  &&  cd  miapp
 1. Crea la estructura de carpetas con gradle:
 
 ```
-gradle  init  --type  java-library
+gradle  init  --type  java-application
 ```
-
-> Nota: la versión de gradle que he utilizado es la 2.10 y no me permite el tipo de proyecto java-application.
-
 
 2. Veras que se han creado una estructura de directorios y un _buildfile_ llamado __build.gradle__.
 
@@ -222,10 +217,10 @@ tree
 └── src
     ├── main
     │   └── java  
-    │       └── Library.java
+    │       └── App.java
     └── test
         └── java
-            └── LibraryTest.java
+            └── AppTest.java
 ```
 
 
@@ -234,7 +229,7 @@ tree
 __Primero, borra las clases que vienen por defecto:__
 
 ```
-rm  src/main/java/Library.java  src/test/java/LibraryTest.java
+rm  src/main/java/App.java  src/test/java/AppTest.java
 ```
 
 __Crea 2 clases dentro de la ruta `src/main/java`:__
@@ -337,6 +332,7 @@ repositories {
 }
 
 dependencies {
+    compile 'com.google.guava:guava:23.0' 
     testCompile 'junit:junit:4.12'         
 }
 
@@ -367,6 +363,12 @@ cd build/classes/main  &&  java Main  &&  cd ../../..
 
 
 6. El archivo .jar se ha guardado en la carpeta `build/libs`. Para ejecutar dicho archivo .jar:
+
+```
+./gradlew  run
+```
+
+Otra forma de ejecutarlo es
 
 ```
 java  -jar  build/libs/miapp.jar
