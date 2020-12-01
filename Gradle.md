@@ -32,8 +32,8 @@ gradle init  --type   java-application
 
 Otros tipos de proyectos son: 
 - basic
-- groovy-library
 - pom
+- groovy-library
 - scala-library
 - java-library
 
