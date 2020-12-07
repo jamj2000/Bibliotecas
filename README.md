@@ -1,6 +1,6 @@
 # __Creación y Uso de Bibliotecas (librerías)__
 
-Minitutorial para crear y usar bibliotecas propias.
+Minitutorial para crear y usar bibliotecas propias. **SÓLO APLICABLE A BIBLIOTECAS COMPILADAS**, como las de C, C++ o Java.
 
 Como ejemplo se crea una biblioteca llamada `aritmetica` con las cuatro operaciones básicas: `suma`, `resta`, `multiplicacion` y `division`.
 
