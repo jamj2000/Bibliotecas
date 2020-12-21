@@ -16,8 +16,9 @@ mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app \
     -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.0 -DinteractiveMode=false
 ```
 
-- `groupId` corresponde al paquete, en este caso com.mycompany.app
-- `artifactId` corresponde al componente java desarrollado (como podría ser una biblioteca)
+
+- `groupId` corresponde a ***package com.mycompany.app*** de cada clase.
+- `artifactId` corresponde al nombre de componente  o proyecto java desarrollado
 
 
 El comando anterior genera una estructura de directorios como la mostrada a continuación:
