@@ -32,13 +32,13 @@ tree
     ├── main
     │   └── java
     │       └── com
-    │           └── miempresa
+    │           └── mycompany
     │               └── app
     │                   └── App.java
     └── test
         └── java
             └── com
-                └── miempresa
+                └── mycompany
                     └── app
                         └── AppTest.java
 ```
