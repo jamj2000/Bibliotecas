@@ -89,7 +89,7 @@ make  install
 
 --- 
 
-__Para ver como se puede generar un Makefile haciendo uso de CMake consulta el [siguiente enlace](https://github.com/jamj2000/DAW1-ED-Bibliotecas/blob/master/CMake.md)__
+__Para ver como se puede generar un Makefile haciendo uso de CMake consulta el [siguiente enlace](https://github.com/jamj2000/Bibliotecas/blob/master/CMake.md)__
 
 --- 
 
@@ -109,17 +109,17 @@ ant
 ```
 
 ```
-Buildfile: /home/jose/Proyectos/DAW1-ED-Bibliotecas/java/build.xml
+Buildfile: /home/jose/Proyectos/Bibliotecas/java/build.xml
 
 init:
-    [mkdir] Created dir: /home/jose/Proyectos/DAW1-ED-Bibliotecas/java/build/classes
-    [mkdir] Created dir: /home/jose/Proyectos/DAW1-ED-Bibliotecas/java/build/jar
+    [mkdir] Created dir: /home/jose/Proyectos/Bibliotecas/java/build/classes
+    [mkdir] Created dir: /home/jose/Proyectos/Bibliotecas/java/build/jar
 
 compile:
-    [javac] Compiling 2 source files to /home/jose/Proyectos/DAW1-ED-Bibliotecas/java/build/classes
+    [javac] Compiling 2 source files to /home/jose/Proyectos/Bibliotecas/java/build/classes
 
 jar:
-      [jar] Building jar: /home/jose/Proyectos/DAW1-ED-Bibliotecas/java/build/jar/programa.jar
+      [jar] Building jar: /home/jose/Proyectos/Bibliotecas/java/build/jar/programa.jar
 
 BUILD SUCCESSFUL
 Total time: 2 seconds
@@ -147,10 +147,10 @@ ant  run
 
 ---
 
-__Para ver como construir un proyecto Java con Maven, consulta el [siguiente enlace](https://github.com/jamj2000/DAW1-ED-Bibliotecas/blob/master/Maven.md)__
+__Para ver como construir un proyecto Java con Maven, consulta el [siguiente enlace](https://github.com/jamj2000/Bibliotecas/blob/master/Maven.md)__
 
 ---
 
-__Para ver como construir un proyecto Java con Gradle, consulta el [siguiente enlace](https://github.com/jamj2000/DAW1-ED-Bibliotecas/blob/master/Gradle.md)__
+__Para ver como construir un proyecto Java con Gradle, consulta el [siguiente enlace](https://github.com/jamj2000/Bibliotecas/blob/master/Gradle.md)__
 
 ---
