@@ -5,8 +5,8 @@ Minitutorial para crear y usar bibliotecas propias. **SÓLO APLICABLE A BIBLIOTE
 Como ejemplo se crea una biblioteca llamada `aritmetica` con las cuatro operaciones básicas: `suma`, `resta`, `multiplicacion` y `division`.
 
 Se realiza para los lenguajes:
-- C
-- Java
+- [C](#c)
+- [Java](#java)
 
 ---
 
