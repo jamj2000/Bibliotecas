@@ -236,6 +236,10 @@ nano  pom.xml
   <artifactId>mi-app</artifactId>
   <version>1.0.0</version>
   <name>mi-app</name>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
 
   <build>
     <plugins>
