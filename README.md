@@ -257,13 +257,15 @@ javac  aritmetica/Aritmetica.java
 jar  cvf  aritmetica.jar  aritmetica/*.class
 ```
 
-4. Instalamos biblioteca en el sistema
-
-  Para instalar dicha biblioteca en el sistema debemos copiar `aritmetica.jar` al directorio de sistema donde se alojan las librerias de extensiones (p.ej: **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext`**). No es necesario mantener el nombre del archivo.
-
-```bash
-mv  aritmetica.jar  /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/aritm.jar
-```
+> **SÓLO VÁLIDO PARA JDK8**
+> 
+> 4. Instalamos biblioteca en el sistema
+>
+>  Para instalar dicha biblioteca en el sistema debemos copiar `aritmetica.jar` al directorio de sistema donde se alojan las librerias de extensiones (p.ej: **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext`**). No es necesario mantener el nombre del archivo.
+>
+>```bash
+>mv  aritmetica.jar  /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/aritm.jar
+>```
  
 ### Crear programa que usa la biblioteca
 
@@ -279,9 +281,7 @@ Codigo en:
 javac  Main.java
 ```
 
-Obtenemos un archivo `Main.class` con el bytecode.
-
-Al compilar, se enlaza con las bibliotecas necesarias, buscando éstas en el directorio de bibliotecas del sistema. En nuestro caso en **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib`** para la biblioteca estándar de Java. Y en **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext`** para las bibliotecas añadidas.
+Obtenemos el bytecode en un archivo `Main.class`.
 
 
 3. Ejecutamos
@@ -289,9 +289,6 @@ Al compilar, se enlaza con las bibliotecas necesarias, buscando éstas en el dir
 ```
 java  Main
 ```
-
-Al ejecutar, se buscan las bibliotecas necesarias en el directorio de bibliotecas del sistema. En nuestro caso en **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib`** para la biblioteca estándar de Java. Y en **`/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext`** para las bibliotecas añadidas.
-
 
 
 ### Crear programa autocontenido
@@ -377,26 +374,6 @@ Las opciones f y e deben introducirse en el mismo orden que los argumentos corre
 ```bash
 java   -jar    main.jar
 ```
-
-> NOTA: En este caso NO hemos hecho uso de la biblioteca  /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/aritm.jar.
-> 
-> Podemos mover el paquete `main.jar` a otro directorio o incluso a otro computador que disponga de JRE 
-> y seguirá ejecutándose correctamente.
-
-
-> NOTA: Otra forma de realizar la ejecución, que funciona algunas veces es:
->
-> 2. Damos permisos de ejecución
->
-> ```
-> chmod +x  main.jar
-> ```
->
-> 3. Ejecutamos
->
-> ```
-> ./main.jar
-> ```
 
 
 --- 
