@@ -22,6 +22,19 @@ Gradle tiene las siguientes desventajas sobre ant y maven:
 - tiene peor integración con los IDEs.
 - para pequeños proyectos pueden ser más adecuados otros sistemas de construcción.
 
+## Prerequisitos
+
+Si trabajas con JDK 17 o superior, necesitarás instalar al menos la versión 7.3 de Gradle. 
+
+En los repositorios de Ubuntu la versión de gradle suele estar bastante anticuada. Por tanto te recomiendo instalas una versión fuera de los repositorios.
+
+Para ello ejecuta los siguientes comandos:
+
+```console
+curl -s "https://get.sdkman.io" | bash   # Instalamos SDKMAN
+sdk install gradle 8.4                   # Instalamos Gradle
+```
+
 
 ## Creación de proyecto
 
@@ -43,21 +56,26 @@ El comando anterior genera una estructura de directorios como la mostrada a cont
 tree
 
 .
-├── build.gradle
+├── app
+│   ├── build.gradle.kts
+│   └── src
+│       ├── main
+│       │   ├── java
+│       │   │   └── miapp
+│       │   │       └── App.java
+│       │   └── resources
+│       └── test
+│           ├── java
+│           │   └── miapp
+│           │       └── AppTest.java
+│           └── resources
 ├── gradle
 │   └── wrapper
 │       ├── gradle-wrapper.jar
 │       └── gradle-wrapper.properties
 ├── gradlew
 ├── gradlew.bat
-├── settings.gradle
-└── src
-    ├── main
-    │   └── java
-    │       └── App.java
-    └── test
-        └── java
-            └── AppTest.java
+└── settings.gradle.kts
 
 ```
 
@@ -200,27 +218,33 @@ mkdir  miapp  &&  cd  miapp
 gradle  init  --type  java-application
 ```
 
-2. Veras que se han creado una estructura de directorios y un _buildfile_ llamado __build.gradle__.
+2. Veras que se han creado una estructura de directorios y un _buildfile_ llamado __app/build.gradle.kts__.
 
 ```
 tree    
 
 .
-├── build.gradle
-├── gradle    
-│   └── wrapper
-│       ├── gradle-wrapper.jar
-│       └── gradle-wrapper.properties
+├── app
+│   ├── build.gradle.kts
+│   └── src
+│       ├── main
+│       │   ├── java
+│       │   │   └── miapp
+│       │   │       └── App.java
+│       │   └── resources
+│       └── test
+│           ├── java
+│           │   └── miapp
+│           │       └── AppTest.java
+│           └── resources
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
 ├── gradlew
 ├── gradlew.bat
-├── settings.gradle
-└── src
-    ├── main
-    │   └── java  
-    │       └── App.java
-    └── test
-        └── java
-            └── AppTest.java
+└── settings.gradle.kts
+
 ```
 
 
@@ -229,13 +253,13 @@ tree
 __Primero, borra las clases que vienen por defecto:__
 
 ```
-rm  src/main/java/App.java  src/test/java/AppTest.java
+rm  app/src/main/java/miapp/App.java  app/src/test/java/miapp/AppTest.java
 ```
 
 __Crea 2 clases dentro de la ruta `src/main/java`:__
 
 ```
-nano  src/main/java/Main.java
+nano  app/src/main/java/miapp/Main.java
 ```
 
 
@@ -257,7 +281,7 @@ public class Main {
 ```
 
 ```
-nano  src/main/java/Aritmetica.java
+nano  app/src/main/java/miapp/Aritmetica.java
 ```
 
 
@@ -286,7 +310,7 @@ public class Aritmetica {
 __Crea 2 clases de test dentro de la ruta `src/test/java`:__
 
 ```
-nano  src/test/java/MainTest.java
+nano  app/src/test/java/miapp/MainTest.java
 ```
 
 ```java
@@ -303,7 +327,7 @@ public class MainTest {
 ```
 
 ```
-nano  src/test/java/AritmeticaTest.java
+nano  app/src/test/java/miapp/AritmeticaTest.java
 ```
 
 ```java
