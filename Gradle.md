@@ -256,7 +256,7 @@ __Primero, borra las clases que vienen por defecto:__
 rm  app/src/main/java/miapp/App.java  app/src/test/java/miapp/AppTest.java
 ```
 
-__Crea 2 clases dentro de la ruta `src/main/java`:__
+__Crea 2 clases dentro de la ruta `app/src/main/java/miapp`:__
 
 ```
 nano  app/src/main/java/miapp/Main.java
@@ -307,7 +307,7 @@ public class Aritmetica {
 }
 ```
 
-__Crea 2 clases de test dentro de la ruta `src/test/java`:__
+__Crea 2 clases de test dentro de la ruta `app/src/test/java/miapp`:__
 
 ```
 nano  app/src/test/java/miapp/MainTest.java
@@ -345,7 +345,7 @@ public class AritmeticaTest {
 ```
 
 
-4. Edita el archivo `build.gradle` para que tenga el siguiente contenido:
+4. Edita el archivo `app/build.gradle.kts` para que tenga el siguiente contenido:
 
 ```
 apply plugin: 'java'
@@ -376,17 +376,17 @@ mainClassName = 'Main'
 ./gradlew  assemble
 ```
 
-En la carpeta `build/classes` obtendremos el bytecode correspondiente a cada clase.
+En la carpeta `app/build/classes/java/main` obtendremos el bytecode correspondiente a cada clase.
 
 
 Una forma de ejecutar el bytecode es:
 
 ```bash
-cd build/classes/main  &&  java Main  &&  cd ../../..
+cd app/build/classes/java/main  &&  java Main  &&  cd ../../../../..
 ```
 
 
-6. El archivo .jar se ha guardado en la carpeta `build/libs`. Para ejecutar dicho archivo .jar:
+6. El archivo .jar se ha guardado en la carpeta `app/build/libs`. Para ejecutar dicho archivo .jar:
 
 ```
 ./gradlew  run
@@ -395,7 +395,7 @@ cd build/classes/main  &&  java Main  &&  cd ../../..
 Otra forma de ejecutarlo es
 
 ```
-java  -jar  build/libs/miapp.jar
+java  -jar  app/build/libs/app.jar
 ```
 
 7. Para ejecutar las pruebas unitarias:
