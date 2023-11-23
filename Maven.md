@@ -9,6 +9,23 @@ Una característica clave de Maven es que está listo para usar en red. Maven pr
 
 Maven está construido usando una arquitectura basada en plugins.
 
+## Prerequisitos
+
+Para seguir las siguientes instrucciones en necesario tener instalados los siguientes paquetes:
+
+- JDK
+- Maven
+
+En Ubuntu, la herramienta maven se distribuye mediante el paquete **`mvn`**.
+
+Para instalar, ejecutamos:
+
+```sh
+sudo  apt  install  openjdk-17-jdk  # Instalamos JDK 17
+sudo  apt  install  mvn             # Instalamos Maven
+```
+
+
 ## Creación de proyecto
 
 ```
