@@ -222,7 +222,7 @@ Ya podemos copiar `main` y `libs/libaritmetica.so` juntos y `main` siempre encon
 > Para versiones posteriores, la forma de gestionar las bibliotecas ha cambiado.
 >
 > A partir de JDK9 la biblioteca estándar de Java no se distribuye en archivos `.jar`, sino en archivos `.jmod`.
-> Por ejemplo, la bibliteca se distribuía en el archivo `lib/rt.jar`, ahora se distribuye en el archivo `jmods/java.base.jmod`.
+> Por ejemplo, la bibliteca se distribuía en el archivo `lib/rt.jar`, ahora se distribuye en el archivo [`jmods/java.base.jmod`](JMOD.md).
 >
 > Podemos consultar https://blog.mimacom.com/life-after-java-8/ para tener una primera aproximación a esta reestructuración.
 >
