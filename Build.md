@@ -100,6 +100,21 @@ __Para ver como se puede generar un Makefile haciendo uso de CMake consulta el [
 - [build.xml ](java/build.xml) 
 - [código fuente](java)
 
+**Prerrequisitos**
+
+Para seguir las siguientes instrucciones en necesario tener instalados los siguientes paquetes:
+
+- JDK
+- Ant
+
+Para instalar, ejecutamos:
+
+```sh
+sudo  apt  install  openjdk-17-jdk  # Instalamos JDK 17
+sudo  apt  install  ant             # Instalamos Ant
+```
+
+**Pasos**
 
 En el caso del archivo _build.xml_, la regla por defecto es la que viene indicada en la etiqueta "project" en su atributo "default", en este caso la hemos llamado _jar_.
 Sirve para compilar y enlazar todo, generando el bytecode del ejecutable y la biblioteca asociada y guardándolo todo en un archivo .jar. 
