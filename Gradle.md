@@ -24,13 +24,20 @@ Gradle tiene las siguientes desventajas sobre ant y maven:
 
 ## Prerequisitos
 
+Para seguir las siguientes instrucciones en necesario tener instalados los siguientes paquetes:
+
+- JDK
+- Gradle
+
 Si trabajas con JDK 17 o superior, necesitarás instalar al menos la versión 7.3 de Gradle. 
 
 En los repositorios de Ubuntu la versión de gradle suele estar bastante anticuada. Por tanto te recomiendo instalas una versión fuera de los repositorios.
 
-Para ello ejecuta los siguientes comandos:
+Para instalar, ejecutamos:
 
-```console
+```sh
+
+sudo  apt  install  openjdk-17-jdk       # Instalamos JDK 17
 curl -s "https://get.sdkman.io" | bash   # Instalamos SDKMAN
 sdk install gradle 8.4                   # Instalamos Gradle
 ```
