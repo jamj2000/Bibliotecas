@@ -1,13 +1,14 @@
-# Instalación de JDK
-
-```console
-sudo  apt  installl  openjdk-17-jdk
-```
-
 # Archivos JMOD
 
 - Ruta:  /usr/lib/jvm/java-17-openjdk-amd64/jmods
 - Documentación: https://www.herongyang.com/Java-Tools/jmod-The-JMOD-File-Tool.html
+
+
+## Prerrequisito: Instalación de JDK
+
+```console
+sudo  apt  installl  openjdk-17-jdk
+```
 
 ## Ejemplos
 
