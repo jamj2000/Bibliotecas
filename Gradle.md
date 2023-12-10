@@ -31,7 +31,7 @@ Para seguir las siguientes instrucciones en necesario tener instalados los sigui
 
 Si trabajas con JDK 17 o superior, necesitarás instalar al menos la versión 7.3 de Gradle. 
 
-En los repositorios de Ubuntu la versión de gradle suele estar bastante anticuada. Por tanto te recomiendo instalas una versión fuera de los repositorios.
+En los repositorios de Ubuntu la versión de gradle suele estar bastante anticuada. Por tanto te recomiendo instales una versión fuera de los repositorios.
 
 Para instalar, ejecutamos:
 
