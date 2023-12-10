@@ -5,7 +5,7 @@ Gradle es una herramienta para la gestión y construcción de proyectos Java.
 
 De los sistemas de construcción para Java, Gradle es el último en aparecer: el primero fue _ant_ y el segundo _maven_. 
 
-Gradle construye sobre los conceptos de Apache Ant y Apache Maven e introduce un lenguaje especifico del dominio (DSL) basado en Groovy en vez de la forma XML utilizada por Apache Maven y Ant para declarar la configuración de proyecto.
+Gradle construye sobre los conceptos de Apache Ant y Apache Maven e introduce un lenguaje especifico del dominio (DSL) basado en Groovy o en Kotlin en vez de la forma XML utilizada por Apache Maven y Ant para declarar la configuración de proyecto.
 Esta característica hace que el buildfile de gradle sea más conciso y legible.
 
 Al igual que Maven, Gradle trabaja con uno o varios repositorios para usar en red. También al igual que Maven, soporta plugins.
@@ -50,12 +50,30 @@ mkdir  nombre-proyecto  &&  cd  nombre-proyecto
 gradle init  --type   java-application
 ```
 
-Otros tipos de proyectos son: 
+Los tipos de proyectos disponibles son: 
 - basic
-- pom
+- cpp-application
+- cpp-library
+- groovy-application
+- groovy-gradle-plugin
 - groovy-library
-- scala-library
+- java-application
+- java-gradle-plugin
 - java-library
+- kotlin-application
+- kotlin-gradle-plugin
+- kotlin-library
+- pom
+- scala-application
+- scala-library
+- swift-application
+- swift-library
+
+Podemos ver la lista anterior con el comando `gradle help --task :init`
+
+![Gradle init](gradle-init.png)
+
+> NOTA: He seleccionado todas las opciones por defecto: Kotlin, JUnit Jupiter, ...
 
 El comando anterior genera una estructura de directorios como la mostrada a continuación:
 
@@ -68,13 +86,15 @@ tree
 │   └── src
 │       ├── main
 │       │   ├── java
-│       │   │   └── miapp
-│       │   │       └── App.java
+│       │   │   └── nombre
+│       │   │       └── proyecto
+│       │   │           └── App.java
 │       │   └── resources
 │       └── test
 │           ├── java
-│           │   └── miapp
-│           │       └── AppTest.java
+│           │   └── nombre
+│           │       └── proyecto
+│           │           └── AppTest.java
 │           └── resources
 ├── gradle
 │   └── wrapper
@@ -84,6 +104,7 @@ tree
 ├── gradlew.bat
 └── settings.gradle.kts
 
+
 ```
 
 Se generan 2 _wrappers_ :
@@ -91,9 +112,46 @@ Se generan 2 _wrappers_ :
 - gradlew     (para entornos Linux)
 - gradlew.bat (para entornos Windows)
 
-Es aconsejable utilizar estos _wrappers_ o _envoltorios_ puesto que hacen más portable la construcción en equipos con versiones de gradle distintas a las utilizadas por nosotros. No obstante, si no necesitamos construir en otros equipos distintos al nuestro puede utilizarse `gradle` directamente. Para ir adquiriendo buenos hábitos, en el ejemplo mostrado más abajo, se hara uso del wrapper `./gradlew`.
+Es aconsejable utilizar estos _wrappers_ o _envoltorios_ puesto que hacen más portable la construcción en equipos con versiones de gradle distintas a las utilizadas por nosotros. No obstante, si no necesitamos construir en otros equipos distintos al nuestro puede utilizarse `gradle` directamente. Para ir adquiriendo buenos hábitos, en el ejemplo mostrado más abajo, se hará uso del wrapper `./gradlew`.
 
-El archivo de construcción `build.gradle` tiene un contenido similar a este:
+El archivo de construcción `app/build.gradle.kts` tiene un contenido similar a este:
+
+
+```
+plugins {
+    application
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.3")
+
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    // This dependency is used by the application.
+    implementation("com.google.guava:guava:32.1.1-jre")
+}
+
+// Apply a specific Java toolchain to ease working on different environments.
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
+application {
+    mainClass.set("nombre.proyecto.App")
+}
+
+tasks.named<Test>("test") {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}
+```
+
 
 ```
 apply plugin: 'java'
@@ -127,11 +185,15 @@ Las tareas predefinidas pueden verse con el comando:
 __``` ./gradlew  tasks ```__
 
 ```
-:tasks
+> Task :tasks
 
 ------------------------------------------------------------
-All tasks runnable from root project
+Tasks runnable from root project 'nombre-proyecto'
 ------------------------------------------------------------
+
+Application tasks
+-----------------
+run - Runs this project as a JVM application
 
 Build tasks
 -----------
@@ -141,41 +203,53 @@ buildDependents - Assembles and tests this project and all projects that depend 
 buildNeeded - Assembles and tests this project and all projects it depends on.
 classes - Assembles main classes.
 clean - Deletes the build directory.
-jar - Assembles a jar archive containing the main classes.
+jar - Assembles a jar archive containing the classes of the 'main' feature.
 testClasses - Assembles test classes.
 
 Build Setup tasks
 -----------------
-init - Initializes a new Gradle build. [incubating]
-wrapper - Generates Gradle wrapper files. [incubating]
+init - Initializes a new Gradle build.
+wrapper - Generates Gradle wrapper files.
+
+Distribution tasks
+------------------
+assembleDist - Assembles the main distributions
+distTar - Bundles the project as a distribution.
+distZip - Bundles the project as a distribution.
+installDist - Installs the project as a distribution as-is.
 
 Documentation tasks
 -------------------
-javadoc - Generates Javadoc API documentation for the main source code.
+javadoc - Generates Javadoc API documentation for the 'main' feature.
 
 Help tasks
 ----------
-buildEnvironment - Displays all buildscript dependencies declared in root project 'miapp'.
-components - Displays the components produced by root project 'miapp'. [incubating]
-dependencies - Displays all dependencies declared in root project 'miapp'.
-dependencyInsight - Displays the insight into a specific dependency in root project 'miapp'.
+buildEnvironment - Displays all buildscript dependencies declared in root project 'nombre-proyecto'.
+dependencies - Displays all dependencies declared in root project 'nombre-proyecto'.
+dependencyInsight - Displays the insight into a specific dependency in root project 'nombre-proyecto'.
 help - Displays a help message.
-model - Displays the configuration model of root project 'miapp'. [incubating]
-projects - Displays the sub-projects of root project 'miapp'.
-properties - Displays the properties of root project 'miapp'.
-tasks - Displays the tasks runnable from root project 'miapp'.
+javaToolchains - Displays the detected java toolchains.
+kotlinDslAccessorsReport - Prints the Kotlin code for accessing the currently available project extensions and conventions.
+outgoingVariants - Displays the outgoing variants of root project 'nombre-proyecto'.
+projects - Displays the sub-projects of root project 'nombre-proyecto'.
+properties - Displays the properties of root project 'nombre-proyecto'.
+resolvableConfigurations - Displays the configurations that can be resolved in root project 'nombre-proyecto'.
+tasks - Displays the tasks runnable from root project 'nombre-proyecto' (some of the displayed tasks may belong to subprojects).
 
 Verification tasks
 ------------------
 check - Runs all checks.
-test - Runs the unit tests.
+test - Runs the test suite.
 
 .
 .
 .
 ```
 
-Como se observa se distinguen 5 tipos de tareas:
+Como se observa se distinguen 6 tipos de tareas, entre otras:
+
+- Tarea de ejecución:
+  - `run`
 
 - Tareas de construcción, entre otras:
   - `build`
@@ -203,7 +277,7 @@ Por ejemplo, para compilar, construir y realizar tests de unidad ejecutaremos:
 ./gradlew  build
 ```
 
-Todos los archivos generados durante la construcción se guardan en la carpeta `build`. En la subcarpeta `build/libs` se guarda el archivo `.jar`.
+Todos los archivos generados durante la construcción se guardan en la carpeta `app/build`. En la subcarpeta `app/build/libs` se guarda el archivo `.jar`.
 
 
 ## Ejemplo práctico
@@ -251,7 +325,6 @@ tree
 ├── gradlew
 ├── gradlew.bat
 └── settings.gradle.kts
-
 ```
 
 
@@ -271,6 +344,8 @@ nano  app/src/main/java/miapp/Main.java
 
 
 ```java
+package miapp;
+
 public class Main {
 
   private static final int NUM1 = 5;
@@ -293,6 +368,8 @@ nano  app/src/main/java/miapp/Aritmetica.java
 
 
 ```java
+package miapp;
+
 public class Aritmetica {
 
   public static int suma (int sumando1, int sumando2) {
@@ -321,8 +398,10 @@ nano  app/src/test/java/miapp/MainTest.java
 ```
 
 ```java
-import org.junit.Test;
-import static org.junit.Assert.*;
+package miapp;
+
+import org.junit.jupiter.api.Test;  
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MainTest {
 
@@ -338,14 +417,16 @@ nano  app/src/test/java/miapp/AritmeticaTest.java
 ```
 
 ```java
-import org.junit.Test;
-import static org.junit.Assert.*;
+package miapp;
+
+import org.junit.jupiter.api.Test;  
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AritmeticaTest {
     
     @Test 
     public void testSuma() {
-        assertEquals("Suma (2,3) = 5", 5, Aritmetica.suma(2,3));
+        assertEquals(5, Aritmetica.suma(2,3), "Suma (2,3) = 5");
     }
 
 }
@@ -355,25 +436,44 @@ public class AritmeticaTest {
 4. Edita el archivo `app/build.gradle.kts` para que tenga el siguiente contenido:
 
 ```
-apply plugin: 'java'
-apply plugin: 'application'
+plugins {
+    application
+}
 
 repositories {
-    jcenter()  
+    mavenCentral()
 }
 
 dependencies {
-    compile 'com.google.guava:guava:23.0' 
-    testCompile 'junit:junit:4.12'         
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.3")
+
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    // This dependency is used by the application.
+    implementation("com.google.guava:guava:32.1.1-jre")
 }
 
-jar {
-    manifest {
-       attributes ('Main-Class': 'Main')
+// Apply a specific Java toolchain to ease working on different environments.
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
-mainClassName = 'Main'
+application {
+    mainClass.set("miapp.App")
+}
+
+tasks.named<Test>("test") {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "miapp.Main"
+    }
+}
 ```
 
 
@@ -389,7 +489,7 @@ En la carpeta `app/build/classes/java/main` obtendremos el bytecode correspondie
 Una forma de ejecutar el bytecode es:
 
 ```bash
-cd app/build/classes/java/main  &&  java Main  &&  cd ../../../../..
+cd app/build/classes/java/main  &&  java miapp.Main  &&  cd ../../../../..
 ```
 
 
@@ -411,10 +511,10 @@ java  -jar  app/build/libs/app.jar
 ./gradlew  test
 ```
 
-Para ver un informe de las pruebas, podemos abrir con el navegador web el archivo `build/reports/tests/test/index.html`:
+Para ver un informe de las pruebas, podemos abrir con el navegador web el archivo `app/build/reports/tests/test/index.html`:
 
 ```
-firefox build/reports/tests/test/index.html
+firefox app/build/reports/tests/test/index.html
 ```
 
 ![gradle-test](gradle-test.png)
