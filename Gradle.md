@@ -438,7 +438,7 @@ java {
 }
 
 application {
-    mainClass.set("miapp.App")
+    mainClass.set("miapp.Main")
 }
 
 tasks.named<Test>("test") {
