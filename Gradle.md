@@ -153,29 +153,6 @@ tasks.named<Test>("test") {
 ```
 
 
-```
-apply plugin: 'java'
-apply plugin: 'application'
-
-repositories {
-    jcenter()  
-}
-
-dependencies {
-    compile 'com.google.guava:guava:23.0'  
-    testCompile 'junit:junit:4.12'         
-}
-
-jar {
-    manifest {
-       attributes ('Main-Class': 'Main')
-    }
-}
-
-mainClassName = 'Main'
-```
-
-
 ## Tareas (tasks)
 
 Gradle ya tiene predefinidas una serie de tareas (__tasks__, en terminología de gradle).
