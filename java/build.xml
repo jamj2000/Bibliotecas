@@ -52,7 +52,7 @@
 
     <!-- Borramos archivos generados --> 
     <target name="clean">
-      <delete dir="build" />
+      <delete dir="${build.dir}" />
     </target>
 
 
