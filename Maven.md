@@ -22,7 +22,7 @@ Para instalar, ejecutamos:
 
 ```sh
 sudo  apt  install  openjdk-17-jdk  # Instalamos JDK 17
-sudo  apt  install  mvn             # Instalamos Maven
+sudo  apt  install  maven           # Instalamos Maven
 ```
 
 
