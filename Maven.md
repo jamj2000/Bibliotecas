@@ -16,7 +16,7 @@ Para seguir las siguientes instrucciones en necesario tener instalados los sigui
 - JDK
 - Maven
 
-En Ubuntu, la herramienta maven se distribuye mediante el paquete **`mvn`**.
+En Ubuntu, la herramienta maven se distribuye mediante el paquete **`maven`**.
 
 Para instalar, ejecutamos:
 
